@@ -1,11 +1,14 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.ExtendedProperties;
+using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Vml;
 using iTextSharp.text.pdf.parser;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,6 +35,8 @@ namespace NTApp
             DataContext = this;
         }
 
+        private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
+
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             string fileName = "\\notes.txt";
@@ -40,24 +45,6 @@ namespace NTApp
             {                           
                 sw.WriteLine(txtBox1.Text);
                 MessageBox.Show("Note saved");
-            }
-        }
-
-        private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
-
-        private void colorBtn_Click_1(object sender, RoutedEventArgs e)
-        {
-            for (int count = 0; count < 100; count++)
-            {
-                if (colorBtn.IsMouseOver && count % 1 == 0)
-                {
-                    MainGrid.Background = Brushes.AliceBlue;
-                }
-
-                if (colorBtn.IsMouseOver && count % 1 != 0)
-                {
-                    MainGrid.Background = Brushes.LightGray;
-                }
             }
         }
 
@@ -81,9 +68,22 @@ namespace NTApp
                 {
                     MessageBox.Show(srError.Message);
                 }              
+            }         
+        }
+
+        private void colorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Background = Brushes.AliceBlue;
+
+            if (DkModeBtn.IsPressed) 
+            {
+                
             }
-               
-            
+        }
+
+        private void DkModeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Background = Brushes.LightGray;
         }
     }
 }
