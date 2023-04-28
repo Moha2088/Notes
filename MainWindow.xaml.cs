@@ -33,28 +33,45 @@ namespace NTApp
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = "C:\\Users\\maxam\\OneDrive\\Skrivebord\\NoteFolder\\notes.txt";
-            int count = 0;
+            string filePath = "C:\\Users\\maxam\\OneDrive\\Skrivebord\\NoteFolder(NTApp)\\notes.txt";
             using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                if (File.Exists(filePath)) 
+            {         
+                if (File.Exists(filePath))
                 {
-                   
+                  
                 }
 
                 sw.WriteLine(txtBox1.Text);
-                Close();
+
+
+                MessageBox.Show("Note saved");
             }
         }
 
-        private void clearBtn_Click(object sender, RoutedEventArgs e)
+        private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
+
+
+
+
+        private void colorBtn_Click(object sender, RoutedEventArgs e)
         {
-            txtBox1.Clear();
+         
         }
 
-        private void colorBtnRed_Click(object sender, RoutedEventArgs e)
+        private void colorBtn_Click_1(object sender, RoutedEventArgs e)
         {
-            MainGrid.Background = Brushes.Red;
+            for (int count = 0; count < 100; count++)
+            {
+                if (colorBtn.IsMouseOver && count % 1 == 0)
+                {
+                    MainGrid.Background = Brushes.AliceBlue;
+                }
+
+                if (colorBtn.IsMouseOver && count % 1 != 0)
+                {
+                    MainGrid.Background = Brushes.LightGray;
+                }
+            }
         }
     }
 }
