@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.ExtendedProperties;
 using DocumentFormat.OpenXml.Vml;
 using iTextSharp.text.pdf.parser;
 using System;
@@ -33,30 +34,16 @@ namespace NTApp
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = "C:\\Users\\maxam\\OneDrive\\Skrivebord\\NoteFolder(NTApp)\\notes.txt";
+            string fileName = "\\notes.txt";
+            string filePath = "C:\\Users\\maxam\\OneDrive\\Skrivebord\\NoteFolder(NTApp)" + fileName;
             using (StreamWriter sw = new StreamWriter(filePath))
-            {         
-                if (File.Exists(filePath))
-                {
-                  
-                }
-
+            {                           
                 sw.WriteLine(txtBox1.Text);
-
-
                 MessageBox.Show("Note saved");
             }
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
-
-
-
-
-        private void colorBtn_Click(object sender, RoutedEventArgs e)
-        {
-         
-        }
 
         private void colorBtn_Click_1(object sender, RoutedEventArgs e)
         {
@@ -72,6 +59,31 @@ namespace NTApp
                     MainGrid.Background = Brushes.LightGray;
                 }
             }
+        }
+
+        private void ReadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string fileName = "\\notes.txt";
+            string filePath = "C:\\Users\\maxam\\OneDrive\\Skrivebord\\NoteFolder(NTApp)" + fileName;
+
+            using (StreamReader streamReader = new StreamReader(filePath))
+            {
+                string line;
+                try
+                {
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        txtBox1.Text += line;
+                    }
+                }
+
+                catch (Exception srError) 
+                {
+                    MessageBox.Show(srError.Message);
+                }              
+            }
+               
+            
         }
     }
 }
