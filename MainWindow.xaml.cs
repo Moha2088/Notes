@@ -21,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace NTApp
 {
@@ -40,7 +41,16 @@ namespace NTApp
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             string fileName = "\\notes.txt";
-            string filePath = "C:\\Users\\maxam\\OneDrive\\Skrivebord\\NoteFolder(NTApp)" + fileName;
+            string filePath = "C:\\Users\\maxam\\OneDrive\\Skrivebord\\NoteFolder(NTApp)";
+            string folderPath = Path.Combine(filePath, fileName);
+            
+            while(File.Exists(folderPath))
+            {
+                int fileNumber = 0;
+                fileName = $"notes{fileNumber}.txt";
+                folderPath = Path.Combine(filePath, fileName);
+            }
+                    
             using (StreamWriter sw = new StreamWriter(filePath))
             {                           
                 sw.WriteLine(txtBox1.Text);
