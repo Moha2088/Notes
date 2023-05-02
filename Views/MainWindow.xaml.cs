@@ -44,12 +44,12 @@ namespace NTApp
             string fileName = "\\notes.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
             string folderPath = filePath + fileName;
-
+            int fileNumber = 1;
             while (File.Exists(folderPath))
-            {
-                int fileNumber = 1;
+            {         
                 fileName = $"notes{fileNumber}.txt";
                 folderPath = filePath + fileName;
+                fileNumber++;
             }
 
             using (StreamWriter sw = new StreamWriter(folderPath))
