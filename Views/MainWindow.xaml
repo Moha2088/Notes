@@ -5,11 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NTApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+
     <Grid x:Name="MainGrid" Background="LightGray">
-        <TextBox x:Name="txtBox1" AcceptsReturn="true" AcceptsTab="true" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="598" Height="296"/>
-        <Button x:Name="saveBtn" Content="Save file" HorizontalAlignment="Left" Margin="255,393,0,0" VerticalAlignment="Top" Width="66" Background="#FFB1B1B1" BorderBrush="Transparent" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" />
-        <Button x:Name="clearBtn" Content="Clear Text" HorizontalAlignment="Left" Margin="365,393,0,0" VerticalAlignment="Bottom" Width="66" Background="#FFB1B1B1" BorderBrush="Transparent" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" >
+
+        <TextBox x:Name="txtBox1" Text="{Binding currentDate}" Visibility="Hidden" AcceptsReturn="true" AcceptsTab="true" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="598" Height="296"/>
+
+        <Button x:Name="saveBtn" Visibility="Hidden" Content="Save file" HorizontalAlignment="Left" Margin="255,393,0,0" VerticalAlignment="Top" Width="66" Background="#FFB1B1B1" BorderBrush="Transparent" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" />
+        <Button x:Name="DkModeBtn" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="614,79,0,0" VerticalAlignment="Top" BorderBrush="Transparent" Background="{x:Null}" Width="41" Height="36" Click="DkModeBtn_Click"/>
+        <Button x:Name="CreateNoteBtn" Content="Create a note" Background="#FFB1B1B1" BorderBrush="Transparent"  HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Center" Click="CreateNoteBtn_Click" Height="76" Width="168"/>
+        <Button x:Name="LtModeBtn" Visibility="Hidden" Content=" " HorizontalAlignment="Left" Margin="648,76,0,0" VerticalAlignment="Top" Height="35" Width="43" Background="{x:Null}" BorderBrush="{x:Null}" Click="LtModeBtn_Click"/>
+
+        <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" HorizontalAlignment="Left" Margin="365,393,0,0" VerticalAlignment="Bottom" Width="66" Background="#FFB1B1B1" BorderBrush="Transparent" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" >
+
+
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.657"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+
+            </Button.RenderTransform>
+
+        </Button>
+
+        <Ellipse x:Name="LtModeCircle" Visibility="Hidden" HorizontalAlignment="Left" Height="22" Margin="655,79,0,0" Stroke="AliceBlue" VerticalAlignment="Top" Width="22" Fill="AliceBlue"/>
+        <Button x:Name="ReadBtn" Content="Read a file" Visibility="Hidden" HorizontalAlignment="Left" Margin="472,393,0,0" VerticalAlignment="Top" Width="66" Background="#FFB1B1B1" BorderBrush="Transparent" FontFamily="Bahnschrift" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Click="ReadBtn_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,20 +43,8 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Ellipse HorizontalAlignment="Left" Height="22" Margin="655,79,0,0" Stroke="AliceBlue" VerticalAlignment="Top" Width="22" Fill="AliceBlue"/>
-        <Button x:Name="LtModeBtn" Content="." HorizontalAlignment="Left" Margin="648,76,0,0" VerticalAlignment="Top" Height="28" Width="36" Background="{x:Null}" BorderBrush="{x:Null}" Click="LtModeBtn_Click"/>
-        <Button x:Name="ReadBtn" Content="Read a file" HorizontalAlignment="Left" Margin="472,393,0,0" VerticalAlignment="Top" Width="66" Background="#FFB1B1B1" BorderBrush="Transparent" FontFamily="Bahnschrift" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Click="ReadBtn_Click" >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.657"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Ellipse HorizontalAlignment="Left" Height="22" Margin="618,79,0,0" Stroke="White" VerticalAlignment="Top" Width="22" Fill="#FFCCCCCC"/>
-        <Button x:Name="DkModeBtn" Content="" HorizontalAlignment="Left" Margin="614,79,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Width="30" Height="22" Click="DkModeBtn_Click"/>
+        <Ellipse x:Name="DkModeCircle" Visibility="Hidden" HorizontalAlignment="Left" Height="22" Margin="618,79,0,0" Stroke="White" VerticalAlignment="Top" Width="22" Fill="#FFCCCCCC"/>
+        
 
     </Grid>
 </Window>

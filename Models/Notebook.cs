@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NTApp.Models
 {
-    internal class Notebook
+    public class Notebook
     {
         public int Id { get; set; }
 

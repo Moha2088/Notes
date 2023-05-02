@@ -31,36 +31,81 @@ namespace NTApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
         }
 
-        MainViewModel mvm = new MainViewModel();
+        public string currentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm");
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            mvm.SaveTxtFile();
+            string fileName = "\\notes.txt";
+            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+            string folderPath = filePath + fileName;
+
+            //while (File.Exists(folderPath))
+            //{
+            //    int fileNumber = 1;
+            //    fileName = $"notes{fileNumber}.txt";
+            //    folderPath = Path.Combine(filePath, fileName);
+            //}
+
+            using (StreamWriter sw = new StreamWriter(folderPath))
+            {
+                sw.WriteLine(txtBox1.Text);
+                MessageBox.Show("Note saved");
+            }
         }
 
         private void ReadBtn_Click(object sender, RoutedEventArgs e)
         {
-            mvm.ReadTxtFile();
+            string fileName = "\\notes.txt";
+            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+            string folderPath = filePath + fileName;
+
+            using (StreamReader streamReader = new StreamReader(folderPath))
+            {
+                string line;
+                try
+                {
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        txtBox1.Text += line;
+                    }
+                }
+
+                catch (Exception srError)
+                {
+                    MessageBox.Show(srError.Message);
+                }
+            }
         }
 
         private void DkModeBtn_Click(object sender, RoutedEventArgs e)
         {
-            mvm.DkMode();
+            MainGrid.Background = Brushes.DarkGray;
         }
 
         private void LtModeBtn_Click(object sender, RoutedEventArgs e)
         {
-            mvm.LtMode();
+            MainGrid.Background = Brushes.AliceBlue;
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
+
+        private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            saveBtn.Visibility = Visibility.Visible;
+            ReadBtn.Visibility = Visibility.Visible;
+            clearBtn.Visibility = Visibility.Visible;
+            txtBox1.Visibility =Visibility.Visible;
+            DkModeBtn.Visibility = Visibility.Visible;
+            LtModeBtn.Visibility = Visibility.Visible;
+            DkModeCircle.Visibility = Visibility.Visible;
+            LtModeCircle.Visibility = Visibility.Visible;
+            CreateNoteBtn.Visibility = Visibility.Hidden;        
+        }
     }
 }
