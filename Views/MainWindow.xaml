@@ -45,6 +45,5 @@
         </Button>
         <Ellipse x:Name="DkModeCircle" Visibility="Hidden" HorizontalAlignment="Left" Height="22" Margin="618,79,0,0" Stroke="White" VerticalAlignment="Top" Width="22" Fill="#FFCCCCCC"/>
         
-
     </Grid>
 </Window>

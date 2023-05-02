@@ -46,8 +46,8 @@ namespace NTApp
             string folderPath = filePath + fileName;
             int fileNumber = 1;
             while (File.Exists(folderPath))
-            {         
-                fileName = $"notes{fileNumber}.txt";
+            {
+                fileName = $"\\notes{fileNumber}.txt";
                 folderPath = filePath + fileName;
                 fileNumber++;
             }
@@ -100,12 +100,12 @@ namespace NTApp
             saveBtn.Visibility = Visibility.Visible;
             ReadBtn.Visibility = Visibility.Visible;
             clearBtn.Visibility = Visibility.Visible;
-            txtBox1.Visibility =Visibility.Visible;
+            txtBox1.Visibility = Visibility.Visible;
             DkModeBtn.Visibility = Visibility.Visible;
             LtModeBtn.Visibility = Visibility.Visible;
             DkModeCircle.Visibility = Visibility.Visible;
             LtModeCircle.Visibility = Visibility.Visible;
-            CreateNoteBtn.Visibility = Visibility.Hidden;        
+            CreateNoteBtn.Visibility = Visibility.Hidden;
         }
     }
 }
