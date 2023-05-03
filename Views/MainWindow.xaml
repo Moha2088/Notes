@@ -11,10 +11,10 @@
     <Grid x:Name="MainGrid" Background="White">
 
         <TextBox x:Name="txtBox1" Text="{Binding currentDate}" Visibility="Hidden" AcceptsReturn="true" AcceptsTab="true" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="598" Height="296"/>
-        <Button x:Name="saveBtn" Visibility="Hidden" Content="Save file" HorizontalAlignment="Left" Margin="255,393,0,0" VerticalAlignment="Top" Width="66" Background="Transparent" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" />
+        <Button x:Name="saveBtn" Visibility="Hidden" Content="Save file" HorizontalAlignment="Left" Margin="255,383,0,0" VerticalAlignment="Top" Width="66" Background="Transparent" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" />
         <Button x:Name="CreateNoteBtn" FontFamily="Bahnschrift" Content="Create a note" Background="White" BorderBrush="Black"  HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Center" Click="CreateNoteBtn_Click" Height="76" Width="168"/>
 
-        <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" HorizontalAlignment="Left" Margin="365,393,0,0" VerticalAlignment="Bottom" Width="66" Background="Transparent" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" >
+        <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" HorizontalAlignment="Left" Margin="365,383,0,0" VerticalAlignment="Top" Width="66" Background="Transparent" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" >
 
 
             <Button.RenderTransform>
@@ -28,7 +28,7 @@
             </Button.RenderTransform>
 
         </Button>
-        <Button x:Name="ReadBtn" Content="Read a file" Visibility="Hidden" HorizontalAlignment="Left" Margin="472,393,0,0" VerticalAlignment="Top" Width="66" Background="Transparent" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Click="ReadBtn_Click">
+        <Button x:Name="ReadBtn" Content="Read a file" Visibility="Hidden" HorizontalAlignment="Left" Margin="472,383,0,0" VerticalAlignment="Top" Width="66" Background="Transparent" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Click="ReadBtn_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -38,7 +38,10 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="LtModeBtn" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="605,73,0,0" VerticalAlignment="Top" Width="47" Background="{x:Null}" BorderBrush="#FFF69696" Height="40" Click="LtModeBtn_Click"/>
+        <Button x:Name="LightCoralBtn" Content="" HorizontalAlignment="Left" Margin="599,65,0,0" VerticalAlignment="Top" Width="29" Background="LightCoral" BorderBrush="LightCoral" Height="24" Click="LightCoralBtn_Click"/>
+        <Button x:Name="WheatBtn" Content="" HorizontalAlignment="Left" Margin="643,65,0,0" VerticalAlignment="Top" BorderBrush="Wheat" Background="Wheat" Width="29" Height="24" Click="WheatBtn_Click"/>
+        <Button x:Name="WhiteBtn" Content="" HorizontalAlignment="Left" Margin="553,65,0,0" VerticalAlignment="Top" Width="29" Background="White" BorderBrush="Black" Height="24" Click="WhiteBtn_Click"/>
+        <TextBox x:Name="ReadBox" HorizontalAlignment="Left" Margin="553,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
 
 

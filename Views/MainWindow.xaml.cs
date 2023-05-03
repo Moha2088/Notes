@@ -1,28 +1,10 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using DocumentFormat.OpenXml.ExtendedProperties;
-using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Vml;
-using iTextSharp.text.pdf.parser;
-using NTApp.ViewModels;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Path = System.IO.Path;
 
 namespace NTApp
 {
@@ -41,7 +23,7 @@ namespace NTApp
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            string fileName = "\\notes.txt";
+            string fileName = $"\\notes.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
             string folderPath = filePath + fileName;
             int fileNumber = 1;
@@ -61,46 +43,60 @@ namespace NTApp
 
         private void ReadBtn_Click(object sender, RoutedEventArgs e)
         {
-            string fileName = "\\notes.txt";
+            string nameOfFile = $"\\{ReadBox.Text}.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
-            string folderPath = filePath + fileName;
+            string folderPath = filePath + nameOfFile;
 
-            using (StreamReader streamReader = new StreamReader(folderPath))
+            try
             {
-                string line;
-                try
+                using (StreamReader sr = new StreamReader(folderPath))
                 {
-                    while ((line = streamReader.ReadLine()) != null)
+
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
                         txtBox1.Text += line;
                     }
-                }
 
-                catch (Exception srError)
-                {
-                    MessageBox.Show(srError.Message);
+                    if(ReadBox.Text == string.Empty || ReadBox.Text == null)
+                    {
+                        MessageBox.Show("Please enter a file name");
+                    }
                 }
             }
-        }
 
-        
+            catch (Exception ex) 
+            { 
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
 
-        private void LtModeBtn_Click(object sender, RoutedEventArgs e)
+        private void LightCoralBtn_Click(object sender, RoutedEventArgs e)
         {
             MainGrid.Background = Brushes.LightCoral;
         }
 
-        
+        private void WheatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Background = Brushes.Wheat;
+        }
+
+        private void WhiteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Background = Brushes.White;
+        }
 
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
             saveBtn.Visibility = Visibility.Visible;
             ReadBtn.Visibility = Visibility.Visible;
             clearBtn.Visibility = Visibility.Visible;
-            txtBox1.Visibility = Visibility.Visible;     
-            LtModeBtn.Visibility = Visibility.Visible;
+            txtBox1.Visibility = Visibility.Visible;
+            LightCoralBtn.Visibility = Visibility.Visible;
             CreateNoteBtn.Visibility = Visibility.Hidden;
         }
     }
