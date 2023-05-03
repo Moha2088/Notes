@@ -83,28 +83,24 @@ namespace NTApp
             }
         }
 
-        private void DkModeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainGrid.Background = Brushes.DarkGray;
-        }
+        
+
+        private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
 
         private void LtModeBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainGrid.Background = Brushes.AliceBlue;
+            MainGrid.Background = Brushes.LightCoral;
         }
 
-        private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
+        
 
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
             saveBtn.Visibility = Visibility.Visible;
             ReadBtn.Visibility = Visibility.Visible;
             clearBtn.Visibility = Visibility.Visible;
-            txtBox1.Visibility = Visibility.Visible;
-            DkModeBtn.Visibility = Visibility.Visible;
+            txtBox1.Visibility = Visibility.Visible;     
             LtModeBtn.Visibility = Visibility.Visible;
-            DkModeCircle.Visibility = Visibility.Visible;
-            LtModeCircle.Visibility = Visibility.Visible;
             CreateNoteBtn.Visibility = Visibility.Hidden;
         }
     }
