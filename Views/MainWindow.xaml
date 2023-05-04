@@ -8,7 +8,13 @@
         Title="Notes" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
 
-    <Grid x:Name="MainGrid" Background="White">
+    <Grid x:Name="MainGrid">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFF7C60"/>
+                <GradientStop Color="#FFFF4720" Offset="0.993"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="391*"/>
             <ColumnDefinition Width="9*"/>
@@ -42,11 +48,10 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="LightCoralBtn" Content="" HorizontalAlignment="Left" Margin="689,20,0,0" VerticalAlignment="Top" Width="29" Background="LightCoral" BorderBrush="LightCoral" Height="24" Click="LightCoralBtn_Click"/>
         <Button x:Name="WheatBtn" Content="" HorizontalAlignment="Left" Margin="733,20,0,0" VerticalAlignment="Top" BorderBrush="Wheat" Background="Wheat" Width="29" Height="24" Click="WheatBtn_Click"/>
-        <Button x:Name="WhiteBtn" Content="" HorizontalAlignment="Left" Margin="643,20,0,0" VerticalAlignment="Top" Width="29" Background="White" BorderBrush="Black" Height="24" Click="WhiteBtn_Click"/>
+        <Button x:Name="WhiteBtn" Content="" HorizontalAlignment="Left" Margin="692,20,0,0" VerticalAlignment="Top" Width="29" Background="White" BorderBrush="White" Height="24" Click="WhiteBtn_Click"/>
         <TextBox x:Name="ReadBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="readFileLabel" Visibility="Hidden" Content="Enter file to read:" HorizontalAlignment="Left" Margin="623,114,0,0" VerticalAlignment="Top" Width="113" Height="25"/>
+        <Label x:Name="readFileLabel" Foreground="White" Visibility="Hidden" Content="Enter file to read:" HorizontalAlignment="Left" Margin="623,114,0,0" VerticalAlignment="Top" Width="113" Height="25"/>
         <Button x:Name="DeleteFileBtn" Visibility="Hidden" Content="Delete a file" FontWeight="Bold" FontFamily="Bahnschrift" HorizontalAlignment="Left" Margin="627,257,0,0" VerticalAlignment="Top" Click="DeleteFileBtn_Click" Background="White" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -58,9 +63,23 @@
             </Button.RenderTransform>
         </Button>
         <TextBox x:Name="DeleteFileBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="DeleteFileLabel" Visibility="Hidden" Content="Enter file to delete" HorizontalAlignment="Left" Margin="623,203,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="AppLabel" FontWeight="Bold" FontFamily="Bahnschrift" Content="Notes" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="39" Width="84" FontSize="26"/>
-        <Button x:Name="BlackBtn" Content="" HorizontalAlignment="Left" Margin="601,20,0,0" VerticalAlignment="Top" Width="29" Height="24" Background="#FF2F2F2F" Click="BlackBtn_Click"/>
+        <Label x:Name="DeleteFileLabel" Foreground="White" Visibility="Hidden" Content="Enter file to delete" HorizontalAlignment="Left" Margin="623,203,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="AppLabel" FontWeight="Bold" FontFamily="Bahnschrift" Content="Notes" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="39" Width="84" FontSize="26" Foreground="White"/>
+        <Button x:Name="BlackBtn" Content="" HorizontalAlignment="Left" Margin="650,20,0,0" VerticalAlignment="Top" Width="29" Height="24" Background="#FF2F2F2F" Click="BlackBtn_Click" BorderBrush="#FF2F2F2F"/>
+        <Button x:Name="OrangeBtn" Content="" HorizontalAlignment="Left" Margin="610,20,0,0" VerticalAlignment="Top" Click="Button_Click" Width="29" Height="24">
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF7C60"/>
+                    <GradientStop Color="#FFFF4720" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF7C60"/>
+                    <GradientStop Color="#FFFF4720" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
 
 

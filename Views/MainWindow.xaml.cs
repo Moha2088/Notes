@@ -2,7 +2,9 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media;
 using NTApp.Models;
+
 
 namespace NTApp
 {
@@ -33,27 +35,35 @@ namespace NTApp
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
             string folderPath = filePath + nameOfFile;
 
-            try
+            if (txtBox1.Text != string.Empty)
             {
-                using (StreamReader sr = new StreamReader(folderPath))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        txtBox1.Text += line;
-                    }
-                }
+                MessageBox.Show("Clear the text box before you read another");
             }
 
-            catch (FileNotFoundException notFound)
+            else
             {
-                MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                try
+                {
+                    using (StreamReader sr = new StreamReader(folderPath))
+                    {
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            txtBox1.Text += line;
+                        }
+                    }
+                }
+
+                catch (FileNotFoundException notFound)
+                {
+                    MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                }
             }
         }
 
-        private void clearBtn_Click(object sender, RoutedEventArgs e) 
+        private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(txtBox1.Text == string.Empty)
+            if (txtBox1.Text == string.Empty)
             {
                 MessageBox.Show("Nothing to clear");
             }
@@ -72,7 +82,6 @@ namespace NTApp
             ReadBtn.Visibility = Visibility.Visible;
             clearBtn.Visibility = Visibility.Visible;
             txtBox1.Visibility = Visibility.Visible;
-            LightCoralBtn.Visibility = Visibility.Visible;
             CreateNoteBtn.Visibility = Visibility.Hidden;
             ReadBox.Visibility = Visibility.Visible;
             readFileLabel.Visibility = Visibility.Visible;
@@ -81,14 +90,12 @@ namespace NTApp
             DeleteFileBtn.Visibility = Visibility.Visible;
         }
 
-        private void LightCoralBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainGrid.Background = Brushes.LightCoral;
-        }
-
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
         {
             MainGrid.Background = Brushes.Wheat;
+            AppLabel.Foreground = Brushes.Black;
+            readFileLabel.Foreground = Brushes.Black;
+            DeleteFileLabel.Foreground = Brushes.Black;
         }
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
@@ -107,6 +114,17 @@ namespace NTApp
             DeleteFileLabel.Foreground = Brushes.White;
 
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Color startColor = (Color)ColorConverter.ConvertFromString("#FFFF7C60");
+            Color endColor = (Color)ColorConverter.ConvertFromString("#FFFF4720");
+            LinearGradientBrush gradientBrush = new LinearGradientBrush(startColor, endColor, 90);
+            MainGrid.Background = gradientBrush;
+            AppLabel.Foreground = Brushes.White;
+            readFileLabel.Foreground = Brushes.White;
+            DeleteFileLabel.Foreground = Brushes.White;
         }
     }
 }
