@@ -41,7 +41,8 @@
         <Button x:Name="LightCoralBtn" Content="" HorizontalAlignment="Left" Margin="599,65,0,0" VerticalAlignment="Top" Width="29" Background="LightCoral" BorderBrush="LightCoral" Height="24" Click="LightCoralBtn_Click"/>
         <Button x:Name="WheatBtn" Content="" HorizontalAlignment="Left" Margin="643,65,0,0" VerticalAlignment="Top" BorderBrush="Wheat" Background="Wheat" Width="29" Height="24" Click="WheatBtn_Click"/>
         <Button x:Name="WhiteBtn" Content="" HorizontalAlignment="Left" Margin="553,65,0,0" VerticalAlignment="Top" Width="29" Background="White" BorderBrush="Black" Height="24" Click="WhiteBtn_Click"/>
-        <TextBox x:Name="ReadBox" HorizontalAlignment="Left" Margin="553,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ReadBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="553,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ReadComboBox" HorizontalAlignment="Left" Margin="552,282,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ReadComboBox_SelectionChanged" Background="{x:Null}"/>
 
 
 
