@@ -1,9 +1,8 @@
-﻿using DocumentFormat.OpenXml.Presentation;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
+using NTApp.Models;
 
 namespace NTApp
 {
@@ -24,7 +23,6 @@ namespace NTApp
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             noteRepo.SaveFile(txtBox1.Text);
-
         }
 
         private void ReadBtn_Click(object sender, RoutedEventArgs e)
@@ -53,7 +51,20 @@ namespace NTApp
             }
         }
 
-        private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
+        private void clearBtn_Click(object sender, RoutedEventArgs e) 
+        {
+            if(txtBox1.Text == string.Empty)
+            {
+                MessageBox.Show("Nothing to clear");
+            }
+
+            txtBox1.Clear();
+        }
+
+        private void DeleteFileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            noteRepo.DeleteFile(DeleteFileBox.Text);
+        }
 
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -94,15 +105,8 @@ namespace NTApp
             AppLabel.Foreground = Brushes.White;
             readFileLabel.Foreground = Brushes.White;
             DeleteFileLabel.Foreground = Brushes.White;
-            
-            
-        }
 
-        private void DeleteFileBtn_Click(object sender, RoutedEventArgs e)
-        {
-           noteRepo.DeleteFile(DeleteFileBox.Text);
-        }
 
-        
+        }
     }
 }
