@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Presentation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -17,56 +18,42 @@ namespace NTApp
             DataContext = this;
         }
 
-        public string currentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm");
+        NoteRepo noteRepo = new NoteRepo();
+        public string currentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm ");
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            string fileName = $"\\notes.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
-            string folderPath = filePath + fileName;
-            int fileNumber = 1;
-            while (File.Exists(folderPath))
-            {
-                fileName = $"\\notes{fileNumber}.txt";
-                folderPath = filePath + fileName;
-                fileNumber++;
-            }
+            noteRepo.SaveFile(txtBox1.Text);
 
-            using (StreamWriter sw = new StreamWriter(folderPath))
-            {
-                sw.WriteLine(txtBox1.Text);
-                MessageBox.Show("Note saved");
-            }
         }
 
         private void ReadBtn_Click(object sender, RoutedEventArgs e)
         {
+            // noteRepo.ReadFile(ReadBox.Text, txtBox1.Text);
+
             string nameOfFile = $"\\{ReadBox.Text}.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
             string folderPath = filePath + nameOfFile;
 
-
-            using (StreamReader sr = new StreamReader(folderPath))
+            try
             {
-                string line;
-                while ((line = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader(folderPath))
                 {
-                    txtBox1.Text += line;
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        txtBox1.Text += line;
+                    }
                 }
+            }
+
+            catch (FileNotFoundException notFound)
+            {
+                MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
             }
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e) => txtBox1.Clear();
-
-        private void ReadComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) // Not functional
-        {
-            Directory.EnumerateFiles("C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)");
-            List<string> files = new List<string>();
-            foreach (string file in files)
-            {
-                ReadComboBox.Items.Add($"\\{file}.txt");
-            }
-        }
 
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -77,6 +64,10 @@ namespace NTApp
             LightCoralBtn.Visibility = Visibility.Visible;
             CreateNoteBtn.Visibility = Visibility.Hidden;
             ReadBox.Visibility = Visibility.Visible;
+            readFileLabel.Visibility = Visibility.Visible;
+            DeleteFileLabel.Visibility = Visibility.Visible;
+            DeleteFileBox.Visibility = Visibility.Visible;
+            DeleteFileBtn.Visibility = Visibility.Visible;
         }
 
         private void LightCoralBtn_Click(object sender, RoutedEventArgs e)
@@ -92,6 +83,26 @@ namespace NTApp
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
         {
             MainGrid.Background = Brushes.White;
+            AppLabel.Foreground = Brushes.Black;
+            readFileLabel.Foreground = Brushes.Black;
+            DeleteFileLabel.Foreground = Brushes.Black;
         }
+
+        private void BlackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Background = (Brush)(new BrushConverter().ConvertFrom("#FF2F2F2F"));
+            AppLabel.Foreground = Brushes.White;
+            readFileLabel.Foreground = Brushes.White;
+            DeleteFileLabel.Foreground = Brushes.White;
+            
+            
+        }
+
+        private void DeleteFileBtn_Click(object sender, RoutedEventArgs e)
+        {
+           noteRepo.DeleteFile(DeleteFileBox.Text);
+        }
+
+        
     }
 }
