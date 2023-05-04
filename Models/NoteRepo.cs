@@ -63,6 +63,20 @@ namespace NTApp.Models
             }
         }
 
+        public void UpdateFile(string file, string outputBox)
+        {
+            string nameOfFile = $"\\{file}.txt";
+            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+            string folderPath = filePath + nameOfFile;
+            File.Delete(folderPath);
+
+            using (StreamWriter sw = new StreamWriter(folderPath))
+            {
+                sw.WriteLine(outputBox);
+                MessageBox.Show($"Note updated: {nameOfFile}");
+            }
+        }
+
         public void DeleteFile(string file)
         {
             string nameOfFile = $"\\{file}.txt";

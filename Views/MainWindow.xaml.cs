@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media;
 using NTApp.Models;
 
 
@@ -61,6 +60,8 @@ namespace NTApp
             }
         }
 
+        
+
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
             if (txtBox1.Text == string.Empty)
@@ -88,6 +89,9 @@ namespace NTApp
             DeleteFileLabel.Visibility = Visibility.Visible;
             DeleteFileBox.Visibility = Visibility.Visible;
             DeleteFileBtn.Visibility = Visibility.Visible;
+            UpdateFileLabel.Visibility = Visibility.Visible;
+            UpdateBox.Visibility = Visibility.Visible;
+            UpdateBtn.Visibility = Visibility.Visible;
         }
 
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
@@ -96,6 +100,7 @@ namespace NTApp
             AppLabel.Foreground = Brushes.Black;
             readFileLabel.Foreground = Brushes.Black;
             DeleteFileLabel.Foreground = Brushes.Black;
+            UpdateFileLabel.Foreground = Brushes.Black;
         }
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
@@ -104,6 +109,7 @@ namespace NTApp
             AppLabel.Foreground = Brushes.Black;
             readFileLabel.Foreground = Brushes.Black;
             DeleteFileLabel.Foreground = Brushes.Black;
+            UpdateFileLabel.Foreground = Brushes.Black;
         }
 
         private void BlackBtn_Click(object sender, RoutedEventArgs e)
@@ -112,6 +118,7 @@ namespace NTApp
             AppLabel.Foreground = Brushes.White;
             readFileLabel.Foreground = Brushes.White;
             DeleteFileLabel.Foreground = Brushes.White;
+            UpdateFileLabel.Foreground = Brushes.White;
 
 
         }
@@ -125,6 +132,12 @@ namespace NTApp
             AppLabel.Foreground = Brushes.White;
             readFileLabel.Foreground = Brushes.White;
             DeleteFileLabel.Foreground = Brushes.White;
+            UpdateFileLabel.Foreground = Brushes.White;
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            noteRepo.UpdateFile(UpdateBox.Text, txtBox1.Text);
         }
     }
 }
