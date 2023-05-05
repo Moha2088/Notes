@@ -21,10 +21,12 @@
         </Grid.ColumnDefinitions>
 
         <TextBox x:Name="txtBox1" Text="{Binding currentDate}" Visibility="Hidden" AcceptsReturn="true" AcceptsTab="true" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="484" Height="296" Margin="46,59,0,0"/>
-        <Button x:Name="saveBtn" Visibility="Hidden" Content="Save file" HorizontalAlignment="Left" Margin="172,370,0,0" VerticalAlignment="Top" Width="88" Background="White" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" Height="38" />
-        <Button x:Name="CreateNoteBtn" FontFamily="Bahnschrift" Content="Create a note" Background="White" BorderBrush="Black"  HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Center" Click="CreateNoteBtn_Click" Height="76" Width="168"/>
-
-        <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" HorizontalAlignment="Left" Margin="320,369,0,0" VerticalAlignment="Top" Width="88" Background="White" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" Height="38" >
+        
+        <Button x:Name="saveBtn" Visibility="Hidden" Foreground="White" Content="Save file" HorizontalAlignment="Left" Margin="172,370,0,0" VerticalAlignment="Top" Width="88" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" Height="38" />
+        
+        <Button x:Name="CreateNoteBtn" FontFamily="Bahnschrift" Content="Create a note" Background="Transparent" BorderBrush="White"  HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Center" Click="CreateNoteBtn_Click" Height="76" Width="168" Foreground="White"/>
+        
+        <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" HorizontalAlignment="Left" Margin="320,369,0,0" VerticalAlignment="Top" Width="88" Foreground="White" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" Height="38" >
 
 
             <Button.RenderTransform>
@@ -38,7 +40,7 @@
             </Button.RenderTransform>
 
         </Button>
-        <Button x:Name="ReadBtn" Content="Read file" Visibility="Hidden" HorizontalAlignment="Left" Margin="629,167,0,0" VerticalAlignment="Top" Width="68" Background="White" BorderBrush="Black" FontFamily="Bahnschrift" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Click="ReadBtn_Click" Height="20">
+        <Button x:Name="ReadBtn" Content="Read file" Visibility="Hidden" HorizontalAlignment="Left" Margin="629,167,0,0" VerticalAlignment="Top" Width="68" Foreground="White" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Click="ReadBtn_Click" Height="20">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -52,7 +54,7 @@
         <Button x:Name="WhiteBtn" Content="" HorizontalAlignment="Left" Margin="692,20,0,0" VerticalAlignment="Top" Width="29" Background="White" BorderBrush="White" Height="24" Click="WhiteBtn_Click"/>
         <TextBox x:Name="ReadBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="readFileLabel" Foreground="White" Visibility="Hidden" Content="Enter file to read:" HorizontalAlignment="Left" Margin="623,114,0,0" VerticalAlignment="Top" Width="113" Height="25"/>
-        <Button x:Name="DeleteFileBtn" Visibility="Hidden" Content="Delete file" FontWeight="Bold" FontFamily="Bahnschrift" HorizontalAlignment="Left" Margin="628,257,0,0" VerticalAlignment="Top" Click="DeleteFileBtn_Click" Background="White" RenderTransformOrigin="0.5,0.5" BorderBrush="Black" Width="63">
+        <Button x:Name="DeleteFileBtn" Visibility="Hidden" Content="Delete file" FontWeight="Bold" FontFamily="Bahnschrift" HorizontalAlignment="Left" Margin="628,257,0,0" VerticalAlignment="Top" Click="DeleteFileBtn_Click" Foreground="White" Background="Transparent" RenderTransformOrigin="0.5,0.5" BorderBrush="White" Width="63">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -80,7 +82,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="UpdateBtn" Content="Update file" Visibility="Hidden" HorizontalAlignment="Left" FontFamily="Bahnschrift" FontWeight="Bold" Margin="628,347,0,0" VerticalAlignment="Top" Click="UpdateBtn_Click" BorderBrush="Black" Background="White" Width="66"/>
+        <Button x:Name="UpdateBtn" Content="Update file" Visibility="Hidden" HorizontalAlignment="Left" FontFamily="Bahnschrift" FontWeight="Bold" Margin="628,347,0,0" VerticalAlignment="Top" Click="UpdateBtn_Click" BorderBrush="White" Foreground="White" Background="Transparent" Width="66"/>
         <TextBox x:Name="UpdateBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="UpdateFileLabel" Visibility="Hidden" Content="Enter file to Update" HorizontalAlignment="Left" Margin="624,292,0,0" VerticalAlignment="Top" Width="124" Foreground="White"/>
 

@@ -36,7 +36,6 @@ namespace NTApp.Models
                     MessageBox.Show($"Note saved: {fileName}");
                 }
             }
-
         }
 
         public void ReadFile(string file, string outputBox)
