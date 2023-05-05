@@ -4,10 +4,10 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
-using NTApp.Models;
+using Notes.Models;
 
 
-namespace NTApp
+namespace Notes
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
