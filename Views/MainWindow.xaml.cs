@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
@@ -101,62 +102,65 @@ namespace NTApp
 
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
         {
+            CreateNoteBtn.Foreground = Brushes.Black;
+            CreateNoteBtn.BorderBrush = Brushes.Black;
             MainGrid.Background = Brushes.Wheat;
             AppLabel.Foreground = Brushes.Black;
-            readFileLabel.Foreground = Brushes.Black;
             saveBtn.Foreground = Brushes.Black;
             saveBtn.BorderBrush = Brushes.Black;
-            clearBtn.Foreground = Brushes.Black;
-            clearBtn.BorderBrush = Brushes.Black;
+            readFileLabel.Foreground = Brushes.Black;
             ReadBtn.Foreground = Brushes.Black;
             ReadBtn.BorderBrush = Brushes.Black;
+            UpdateFileLabel.Foreground = Brushes.Black;
+            UpdateBtn.Foreground = Brushes.Black;
+            UpdateBtn.BorderBrush = Brushes.Black;
             DeleteFileLabel.Foreground = Brushes.Black;
             DeleteFileBtn.Foreground = Brushes.Black;
             DeleteFileBtn.BorderBrush = Brushes.Black;
-            UpdateFileLabel.Foreground = Brushes.Black; 
-            UpdateBtn.Foreground = Brushes.Black;
-            UpdateBtn.BorderBrush = Brushes.Black;
-
+            clearBtn.Foreground = Brushes.Black;
+            clearBtn.BorderBrush = Brushes.Black;
         }
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
         {
+            CreateNoteBtn.Foreground = Brushes.Black;
+            CreateNoteBtn.BorderBrush = Brushes.Black;
             MainGrid.Background = Brushes.White;
             AppLabel.Foreground = Brushes.Black;
             saveBtn.Foreground = Brushes.Black;
-            saveBtn.BorderBrush = Brushes.Black;
-            clearBtn.Foreground = Brushes.Black;
-            clearBtn.BorderBrush = Brushes.Black;
+            saveBtn.BorderBrush = Brushes.Black;       
             readFileLabel.Foreground = Brushes.Black;
             ReadBtn.Foreground = Brushes.Black;
             ReadBtn.BorderBrush = Brushes.Black;
-            DeleteFileLabel.Foreground = Brushes.Black;
-            DeleteFileBtn.Foreground = Brushes.Black;
-            DeleteFileBtn.BorderBrush = Brushes.Black;
             UpdateFileLabel.Foreground = Brushes.Black;
             UpdateBtn.Foreground = Brushes.Black;
             UpdateBtn.BorderBrush = Brushes.Black;
-
+            DeleteFileLabel.Foreground = Brushes.Black;
+            DeleteFileBtn.Foreground = Brushes.Black;
+            DeleteFileBtn.BorderBrush = Brushes.Black;
+            clearBtn.Foreground = Brushes.Black;
+            clearBtn.BorderBrush = Brushes.Black;
         }
 
         private void BlackBtn_Click(object sender, RoutedEventArgs e)
         {
+            CreateNoteBtn.Foreground = Brushes.White;
+            CreateNoteBtn.BorderBrush = Brushes.White;
             MainGrid.Background = (Brush)(new BrushConverter().ConvertFrom("#FF2F2F2F"));
             AppLabel.Foreground = Brushes.White;
             saveBtn.Foreground= Brushes.White;
-            saveBtn.BorderBrush = Brushes.White;
-            clearBtn.Foreground = Brushes.White;
-            clearBtn.BorderBrush = Brushes.White;
+            saveBtn.BorderBrush = Brushes.White;     
             readFileLabel.Foreground = Brushes.White;
             ReadBtn.Foreground = Brushes.White;
             ReadBtn.BorderBrush = Brushes.White;
-            DeleteFileLabel.Foreground = Brushes.White;
-            DeleteFileBtn.Foreground = Brushes.White;
-            DeleteFileBtn.BorderBrush = Brushes.White;
             UpdateFileLabel.Foreground = Brushes.White;
             UpdateBtn.Foreground = Brushes.White;
             UpdateBtn.BorderBrush = Brushes.White;
-
+            DeleteFileLabel.Foreground = Brushes.White;
+            DeleteFileBtn.Foreground = Brushes.White;
+            DeleteFileBtn.BorderBrush = Brushes.White;     
+            clearBtn.Foreground = Brushes.White;
+            clearBtn.BorderBrush = Brushes.White;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -164,25 +168,29 @@ namespace NTApp
             Color startColor = (Color)ColorConverter.ConvertFromString("#FFFF7C60");
             Color endColor = (Color)ColorConverter.ConvertFromString("#FFFF4720");
             LinearGradientBrush gradientBrush = new LinearGradientBrush(startColor, endColor, 90);
+
+            CreateNoteBtn.Foreground = Brushes.White;
+            CreateNoteBtn.BorderBrush = Brushes.White;
             MainGrid.Background = gradientBrush;
             AppLabel.Foreground = Brushes.White;
             saveBtn.Foreground = Brushes.White;
             saveBtn.BorderBrush = Brushes.White;
-            clearBtn.Foreground = Brushes.White;
-            clearBtn.BorderBrush = Brushes.White;
+            readFileLabel.Foreground = Brushes.White;
             ReadBtn.Foreground = Brushes.White;
             ReadBtn.BorderBrush = Brushes.White;
-            readFileLabel.Foreground = Brushes.White;
-            DeleteFileLabel.Foreground = Brushes.White;
-            DeleteFileBtn.Foreground= Brushes.White;
-            DeleteFileBtn.BorderBrush = Brushes.White;
+            UpdateFileLabel.Foreground = Brushes.White;
             UpdateBtn.Foreground = Brushes.White;
             UpdateBtn.BorderBrush = Brushes.White;
-            UpdateFileLabel.Foreground = Brushes.White;
-            UpdateBtn.Foreground= Brushes.White;
-            UpdateBtn.BorderBrush = Brushes.White;
-            
+            DeleteFileLabel.Foreground = Brushes.White;
+            DeleteFileBtn.Foreground = Brushes.White;
+            DeleteFileBtn.BorderBrush = Brushes.White;
+            clearBtn.Foreground = Brushes.White;
+            clearBtn.BorderBrush = Brushes.White;
+        }
 
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+           Close();
         }
     }
 }
