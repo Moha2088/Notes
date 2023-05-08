@@ -19,7 +19,7 @@ namespace Notes
 
         NoteRepo noteRepo = new NoteRepo();
 
-        public string currentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm ");
+        public string CurrentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm ");
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -28,37 +28,37 @@ namespace Notes
 
         private void ReadBtn_Click(object sender, RoutedEventArgs e)
         {
-            // noteRepo.ReadFile(ReadBox.Text, txtBox1.Text);
+            //noteRepo.ReadFile(ReadBox.Text, txtBox1.Text);
 
-            string nameOfFile = $"\\{ReadBox.Text}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
-            string folderPath = filePath + nameOfFile;
-
-            if (txtBox1.Text != string.Empty)
-            {
-                MessageBox.Show("Clear the text before you read another!");
-            }
-
-            else
-            {
-                try
-                {
-                    using (StreamReader sr = new StreamReader(folderPath))
-                    {
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            txtBox1.Text += line;
-                        }
-                    }
-                }
-
-                catch (FileNotFoundException notFound)
-                {
-                    MessageBox.Show(
-                        $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
-                }
-            }
+              string nameOfFile = $"\\{ReadBox.Text}.txt";
+              string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+              string folderPath = filePath + nameOfFile;
+             
+              if (txtBox1.Text != string.Empty)
+              {
+                  MessageBox.Show("Clear the text before you read another!");
+              }
+             
+              else
+              {
+                  try
+                  {
+                      using (StreamReader sr = new StreamReader(folderPath))
+                      {
+                          string line;
+                          while ((line = sr.ReadLine()) != null)
+                          {
+                              txtBox1.Text += line;
+                          }
+                      }
+                  }
+             
+                  catch (FileNotFoundException notFound)
+                  {
+                      MessageBox.Show(
+                          $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                  }
+              }
         }
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)

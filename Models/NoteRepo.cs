@@ -21,9 +21,9 @@ namespace Notes.Models
 
             else
             {
-                fileName = $"\\{fileName}.txt";
+                string nameOfFile = $"\\{fileName}.txt";
                 string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
-                string folderPath = filePath + fileName;
+                string folderPath = filePath + nameOfFile;
                 
                 /*int fileNumber = 1;
                 while (File.Exists(folderPath))
@@ -41,9 +41,9 @@ namespace Notes.Models
             }
         }
 
-        public void ReadFile(string file, string outputBox)
+        public void ReadFile(string fileName, string outputBox)
         {
-            string nameOfFile = $"\\{file}.txt";
+            string nameOfFile = $"\\{fileName}.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
             string folderPath = filePath + nameOfFile;
 
@@ -83,7 +83,7 @@ namespace Notes.Models
             using (StreamWriter sw = new StreamWriter(folderPath))
             {
                 sw.WriteLine(outputBox);
-                MessageBox.Show($"Note updated: {nameOfFile}");
+                MessageBox.Show($"Note updated: {file}");
             }
         }
 
@@ -96,7 +96,7 @@ namespace Notes.Models
             try
             {
                 File.Delete(folderPath);
-                MessageBox.Show($"File deleted: {nameOfFile}");
+                MessageBox.Show($"File deleted: {file}");
             }
 
             catch (FileNotFoundException notFound)
