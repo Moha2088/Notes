@@ -5,12 +5,8 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>NTApp logo.ico</ApplicationIcon>
+    <ApplicationIcon>Notesimg.ico</ApplicationIcon>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Include="NTApp logo.ico" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
@@ -21,6 +17,7 @@
   <ItemGroup>
     <None Remove="Notesimg.png" />
     <None Remove="NotesSpash" />
+    <None Remove="NTApp logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
