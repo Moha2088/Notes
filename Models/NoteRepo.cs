@@ -1,11 +1,13 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
+
 
 namespace Notes.Models
 {
     internal class NoteRepo
     {
-        public void SaveFile(string file)
+        public void SaveFile(string file, string fileName)
         {
             if (file == string.Empty)
             {
@@ -19,16 +21,17 @@ namespace Notes.Models
 
             else
             {
-                string fileName = $"\\notes.txt";
+                fileName = $"\\{fileName}.txt";
                 string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
                 string folderPath = filePath + fileName;
-                int fileNumber = 1;
+                
+                /*int fileNumber = 1;
                 while (File.Exists(folderPath))
                 {
                     fileName = $"\\notes{fileNumber}.txt";
                     folderPath = filePath + fileName;
                     fileNumber++;
-                }
+                }*/
 
                 using (StreamWriter sw = new StreamWriter(folderPath))
                 {
@@ -44,21 +47,29 @@ namespace Notes.Models
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
             string folderPath = filePath + nameOfFile;
 
-            try
+            if (outputBox != string.Empty)
             {
-                using (StreamReader sr = new StreamReader(folderPath))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        outputBox += line;
-                    }
-                }
+                MessageBox.Show("Clear the text before you read another!");
             }
 
-            catch (FileNotFoundException notFound)
+            else
             {
-                MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                try
+                {
+                    using (StreamReader sr = new StreamReader(folderPath))
+                    {
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            outputBox += line;
+                        }
+                    }
+                }
+
+                catch (FileNotFoundException notFound)
+                {
+                    MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                }
             }
         }
 
@@ -90,7 +101,8 @@ namespace Notes.Models
 
             catch (FileNotFoundException notFound)
             {
-                MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                MessageBox.Show(
+                    $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
             }
         }
     }

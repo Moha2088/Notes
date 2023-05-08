@@ -1,11 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
 using System.Windows;
 using System.Windows.Media;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Notes.Models;
-
 
 namespace Notes
 {
@@ -26,7 +23,7 @@ namespace Notes
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            noteRepo.SaveFile(txtBox1.Text);
+            noteRepo.SaveFile(txtBox1.Text , FileNameBox.Text);
         }
 
         private void ReadBtn_Click(object sender, RoutedEventArgs e)
@@ -39,7 +36,7 @@ namespace Notes
 
             if (txtBox1.Text != string.Empty)
             {
-                MessageBox.Show("Clear the text box before you read another");
+                MessageBox.Show("Clear the text before you read another!");
             }
 
             else
@@ -58,7 +55,8 @@ namespace Notes
 
                 catch (FileNotFoundException notFound)
                 {
-                    MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                    MessageBox.Show(
+                        $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
                 }
             }
         }
@@ -85,6 +83,8 @@ namespace Notes
 
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
+            FileNameLabel.Visibility = Visibility.Visible;
+            FileNameBox.Visibility = Visibility.Visible;
             CreateNoteBtn.Visibility = Visibility.Hidden;
             saveBtn.Visibility = Visibility.Visible;
             ReadBtn.Visibility = Visibility.Visible;
@@ -102,6 +102,7 @@ namespace Notes
 
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
         {
+            FileNameLabel.Foreground = Brushes.Black;
             CreateNoteBtn.Foreground = Brushes.Black;
             CreateNoteBtn.BorderBrush = Brushes.Black;
             MainGrid.Background = Brushes.Wheat;
@@ -123,12 +124,13 @@ namespace Notes
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
         {
+            FileNameLabel.Foreground = Brushes.Black;
             CreateNoteBtn.Foreground = Brushes.Black;
             CreateNoteBtn.BorderBrush = Brushes.Black;
             MainGrid.Background = Brushes.White;
             AppLabel.Foreground = Brushes.Black;
             saveBtn.Foreground = Brushes.Black;
-            saveBtn.BorderBrush = Brushes.Black;       
+            saveBtn.BorderBrush = Brushes.Black;
             readFileLabel.Foreground = Brushes.Black;
             ReadBtn.Foreground = Brushes.Black;
             ReadBtn.BorderBrush = Brushes.Black;
@@ -144,12 +146,13 @@ namespace Notes
 
         private void BlackBtn_Click(object sender, RoutedEventArgs e)
         {
+            FileNameLabel.Foreground = Brushes.White;
             CreateNoteBtn.Foreground = Brushes.White;
             CreateNoteBtn.BorderBrush = Brushes.White;
             MainGrid.Background = (Brush)(new BrushConverter().ConvertFrom("#FF2F2F2F"));
             AppLabel.Foreground = Brushes.White;
-            saveBtn.Foreground= Brushes.White;
-            saveBtn.BorderBrush = Brushes.White;     
+            saveBtn.Foreground = Brushes.White;
+            saveBtn.BorderBrush = Brushes.White;
             readFileLabel.Foreground = Brushes.White;
             ReadBtn.Foreground = Brushes.White;
             ReadBtn.BorderBrush = Brushes.White;
@@ -158,7 +161,7 @@ namespace Notes
             UpdateBtn.BorderBrush = Brushes.White;
             DeleteFileLabel.Foreground = Brushes.White;
             DeleteFileBtn.Foreground = Brushes.White;
-            DeleteFileBtn.BorderBrush = Brushes.White;     
+            DeleteFileBtn.BorderBrush = Brushes.White;
             clearBtn.Foreground = Brushes.White;
             clearBtn.BorderBrush = Brushes.White;
         }
@@ -169,6 +172,7 @@ namespace Notes
             Color endColor = (Color)ColorConverter.ConvertFromString("#FFFF4720");
             LinearGradientBrush gradientBrush = new LinearGradientBrush(startColor, endColor, 90);
 
+            FileNameLabel.Foreground = Brushes.White;
             CreateNoteBtn.Foreground = Brushes.White;
             CreateNoteBtn.BorderBrush = Brushes.White;
             MainGrid.Background = gradientBrush;
@@ -190,7 +194,7 @@ namespace Notes
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-           Close();
+            Close();
         }
     }
 }
