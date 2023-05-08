@@ -19,7 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Notesimg.png" />
     <None Remove="NotesSpash" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="Notesimg.png" />
   </ItemGroup>
 
 </Project>
