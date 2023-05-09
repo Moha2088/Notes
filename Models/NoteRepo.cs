@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 
 
@@ -24,19 +23,19 @@ namespace Notes.Models
                 string nameOfFile = $"\\{fileName}.txt";
                 string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
                 string folderPath = filePath + nameOfFile;
-                
-                /*int fileNumber = 1;
-                while (File.Exists(folderPath))
-                {
-                    fileName = $"\\notes{fileNumber}.txt";
-                    folderPath = filePath + fileName;
-                    fileNumber++;
-                }*/
 
-                using (StreamWriter sw = new StreamWriter(folderPath))
+                if (File.Exists(folderPath))
                 {
-                    sw.WriteLine(file);
-                    MessageBox.Show($"Note saved: {fileName}");
+                    MessageBox.Show("File already exists. Please use another name");
+                }
+
+                else
+                {
+                    using (StreamWriter sw = new StreamWriter(folderPath))
+                    {
+                        sw.WriteLine(file);
+                        MessageBox.Show($"Note saved: {fileName}");
+                    }
                 }
             }
         }
@@ -68,7 +67,8 @@ namespace Notes.Models
 
                 catch (FileNotFoundException notFound)
                 {
-                    MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                    MessageBox.Show(
+                        $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
                 }
             }
         }
