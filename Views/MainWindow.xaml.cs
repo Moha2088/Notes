@@ -120,6 +120,7 @@ namespace Notes
             DeleteFileBtn.BorderBrush = Brushes.Black;
             clearBtn.Foreground = Brushes.Black;
             clearBtn.BorderBrush = Brushes.Black;
+            vLabel.Foreground = Brushes.Black;
         }
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
@@ -142,6 +143,7 @@ namespace Notes
             DeleteFileBtn.BorderBrush = Brushes.Black;
             clearBtn.Foreground = Brushes.Black;
             clearBtn.BorderBrush = Brushes.Black;
+            vLabel.Foreground = Brushes.Black;
         }
 
         private void BlackBtn_Click(object sender, RoutedEventArgs e)
@@ -164,6 +166,7 @@ namespace Notes
             DeleteFileBtn.BorderBrush = Brushes.White;
             clearBtn.Foreground = Brushes.White;
             clearBtn.BorderBrush = Brushes.White;
+            vLabel.Foreground = Brushes.White;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -190,6 +193,7 @@ namespace Notes
             DeleteFileBtn.BorderBrush = Brushes.White;
             clearBtn.Foreground = Brushes.White;
             clearBtn.BorderBrush = Brushes.White;
+            vLabel.Foreground = Brushes.White;
         }
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)

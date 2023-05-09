@@ -96,5 +96,6 @@
                 <ImageBrush ImageSource="https://static.thenounproject.com/png/530778-200.png"/>
             </Button.Background>
         </Button>
-        </Grid>
+        <Label x:Name="vLabel" Content="v.1.0.0" HorizontalAlignment="Left" Margin="713,470,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift"/>
+    </Grid>
 </Window>
