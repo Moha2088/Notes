@@ -1,11 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using Notes.Models;
 
 namespace Notes
 {
+    delegate void FileCrud(string a, string b);
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -18,13 +21,13 @@ namespace Notes
         }
 
         NoteRepo noteRepo = new NoteRepo();
-
-     
+  
         public string CurrentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm ");
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            noteRepo.SaveFile(txtBox1.Text, FileNameBox.Text);
+            FileCrud fileCrud = noteRepo.SaveFile;  
+            fileCrud(txtBox1.Text, FileNameBox.Text);
         }
 
         private void ReadBtn_Click(object sender, RoutedEventArgs e)
@@ -64,7 +67,8 @@ namespace Notes
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
-            noteRepo.UpdateFile(UpdateBox.Text, txtBox1.Text);
+            FileCrud fileCrud = noteRepo.UpdateFile;
+            fileCrud(UpdateBox.Text, txtBox1.Text);
         }
 
         private void DeleteFileBtn_Click(object sender, RoutedEventArgs e)
@@ -99,6 +103,7 @@ namespace Notes
             UpdateFileLabel.Visibility = Visibility.Visible;
             UpdateBox.Visibility = Visibility.Visible;
             UpdateBtn.Visibility = Visibility.Visible;
+            filesComboBox.Visibility = Visibility.Visible;
         }
 
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
@@ -204,9 +209,20 @@ namespace Notes
 
         private void filesComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            string[] folderFiles = Directory.GetFiles("C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)");
 
-          
+            string folderPath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
+
+            // Get a list of all subdirectories
+
+            var files = from file in Directory.EnumerateFiles(folderPath) select file;
+            Console.WriteLine("Files: {0}", files.Count<string>().ToString());
+            Console.WriteLine("List of Files");
+            foreach (var file in files)
+            {
+                filesComboBox.ItemsSource += file;
+               
+            }
+
         }
     }
 }
