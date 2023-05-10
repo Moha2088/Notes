@@ -21,7 +21,7 @@ namespace Notes.Models
             else
             {
                 string nameOfFile = $"\\{fileName}.txt";
-                string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+                string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
                 string folderPath = filePath + nameOfFile;
 
                 if (File.Exists(folderPath))
@@ -43,7 +43,7 @@ namespace Notes.Models
         public void ReadFile(string fileName, string outputBox)
         {
             string nameOfFile = $"\\{fileName}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
 
             if (outputBox != string.Empty)
@@ -76,7 +76,7 @@ namespace Notes.Models
         public void UpdateFile(string file, string outputBox)
         {
             string nameOfFile = $"\\{file}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
             File.Delete(folderPath);
 
@@ -90,7 +90,7 @@ namespace Notes.Models
         public void DeleteFile(string file)
         {
             string nameOfFile = $"\\{file}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(NTApp)";
+            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
 
             try

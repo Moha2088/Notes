@@ -97,5 +97,6 @@
             </Button.Background>
         </Button>
         <Label x:Name="vLabel" Content="v.1.0.0" HorizontalAlignment="Left" Margin="713,470,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift"/>
+        <ComboBox x:Name="filesComboBox" ItemsSource="{Binding folderFiles}" HorizontalAlignment="Left" Margin="582,276,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="filesComboBox_SelectionChanged"/>
     </Grid>
 </Window>
