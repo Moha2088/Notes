@@ -104,6 +104,7 @@ namespace Notes
             UpdateBox.Visibility = Visibility.Visible;
             UpdateBtn.Visibility = Visibility.Visible;
             filesComboBox.Visibility = Visibility.Visible;
+            MainBackBtn.Visibility = Visibility.Visible;
         }
 
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
@@ -223,6 +224,27 @@ namespace Notes
                
             }
 
+        }
+
+        private void MainBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FileNameLabel.Visibility = Visibility.Hidden;
+            FileNameBox.Visibility = Visibility.Hidden;
+            CreateNoteBtn.Visibility = Visibility.Visible;
+            saveBtn.Visibility = Visibility.Hidden;
+            ReadBtn.Visibility = Visibility.Hidden;
+            clearBtn.Visibility = Visibility.Hidden;
+            txtBox1.Visibility = Visibility.Hidden;
+            ReadBox.Visibility = Visibility.Hidden;
+            readFileLabel.Visibility = Visibility.Hidden;
+            DeleteFileLabel.Visibility = Visibility.Hidden;
+            DeleteFileBox.Visibility = Visibility.Hidden;  
+            DeleteFileBtn.Visibility = Visibility.Hidden;
+            UpdateFileLabel.Visibility = Visibility.Hidden;
+            UpdateBox.Visibility = Visibility.Hidden;
+            UpdateBtn.Visibility = Visibility.Hidden;
+            filesComboBox.Visibility = Visibility.Hidden;
+            MainBackBtn.Visibility = Visibility.Hidden;
         }
     }
 }

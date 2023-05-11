@@ -25,7 +25,7 @@
         <TextBox x:Name="FileNameBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="35,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
         <Label x:Name="FileNameLabel" Visibility="Hidden" Content="Name" HorizontalAlignment="Left" Margin="30,58,0,0" VerticalAlignment="Top" Foreground="White"/>
 
-        
+
         <TextBox x:Name="txtBox1" Text="{Binding CurrentDate}" Visibility="Hidden" AcceptsReturn="true" AcceptsTab="true" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="484" Height="296" Margin="35,114,0,0"/>
 
         <Button x:Name="saveBtn" Visibility="Hidden" Foreground="White" Content="Save file" HorizontalAlignment="Left" Margin="171,430,0,0" VerticalAlignment="Top" Width="88" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" Height="38" />
@@ -98,5 +98,6 @@
         </Button>
         <Label x:Name="vLabel" Content="v.1.0.0" HorizontalAlignment="Left" Margin="713,470,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift"/>
         <ComboBox x:Name="filesComboBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,379,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="filesComboBox_SelectionChanged"/>
+        <Button x:Name="MainBackBtn" Visibility="Hidden" Content="Back" HorizontalAlignment="Left" Margin="30,460,0,0" VerticalAlignment="Top" Height="22" Width="35" Background="{x:Null}" Foreground="White" BorderBrush="White" FontFamily="Bahnschrift" Click="MainBackBtn_Click"/>
     </Grid>
 </Window>
