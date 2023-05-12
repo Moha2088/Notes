@@ -21,12 +21,12 @@ namespace Notes
         }
 
         NoteRepo noteRepo = new NoteRepo();
-  
+
         public string CurrentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm ");
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            FileCrud fileCrud = noteRepo.SaveFile;  
+            FileCrud fileCrud = noteRepo.SaveFile;
             fileCrud(txtBox1.Text, FileNameBox.Text);
         }
 
@@ -221,7 +221,7 @@ namespace Notes
             foreach (var file in files)
             {
                 filesComboBox.ItemsSource += file;
-               
+
             }
 
         }
@@ -238,7 +238,7 @@ namespace Notes
             ReadBox.Visibility = Visibility.Hidden;
             readFileLabel.Visibility = Visibility.Hidden;
             DeleteFileLabel.Visibility = Visibility.Hidden;
-            DeleteFileBox.Visibility = Visibility.Hidden;  
+            DeleteFileBox.Visibility = Visibility.Hidden;
             DeleteFileBtn.Visibility = Visibility.Hidden;
             UpdateFileLabel.Visibility = Visibility.Hidden;
             UpdateBox.Visibility = Visibility.Hidden;

@@ -13,6 +13,11 @@ namespace Notes.Models
                 MessageBox.Show("Type something in the box before you save");
             }
 
+            if (fileName == string.Empty)
+            {
+                MessageBox.Show("The file needs a name");
+            }
+
             if (file.Length < 10)
             {
                 MessageBox.Show("Please write a longer text");
@@ -78,12 +83,27 @@ namespace Notes.Models
             string nameOfFile = $"\\{file}.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
-            File.Delete(folderPath);
+            
 
-            using (StreamWriter sw = new StreamWriter(folderPath))
+            if (File.Exists(folderPath) == false)
             {
-                sw.WriteLine(outputBox);
-                MessageBox.Show($"Note updated: {file}");
+                FileNotFoundException notFoundException = new FileNotFoundException();
+                MessageBox.Show($"{notFoundException.Message} Only existing files can be updated");
+            }
+
+            if (outputBox == string.Empty)
+            {
+                MessageBox.Show("Type something in the box before you update");
+            }
+
+            else
+            {
+                File.Delete(folderPath);
+                using (StreamWriter sw = new StreamWriter(folderPath))
+                {
+                    sw.WriteLine(outputBox);
+                    MessageBox.Show($"Note updated: {file}");
+                }
             }
         }
 
@@ -93,16 +113,16 @@ namespace Notes.Models
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
 
-            try
+            if(File.Exists(folderPath) == false)
+            {
+                FileNotFoundException notFoundException = new FileNotFoundException();
+                MessageBox.Show($"{notFoundException.Message} Only existing files can be deleted");
+            }
+
+            else 
             {
                 File.Delete(folderPath);
                 MessageBox.Show($"File deleted: {file}");
-            }
-
-            catch (FileNotFoundException notFound)
-            {
-                MessageBox.Show(
-                    $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
             }
         }
     }
