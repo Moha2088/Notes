@@ -72,18 +72,18 @@ namespace Notes.Models
 
                 catch (FileNotFoundException notFound)
                 {
-                    MessageBox.Show(
-                        $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
+                    MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
                 }
+
+               
             }
         }
 
-        public void UpdateFile(string file, string outputBox)
+        public void UpdateFile(string file, string inputBox)
         {
             string nameOfFile = $"\\{file}.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
-            
 
             if (File.Exists(folderPath) == false)
             {
@@ -91,7 +91,7 @@ namespace Notes.Models
                 MessageBox.Show($"{notFoundException.Message} Only existing files can be updated");
             }
 
-            if (outputBox == string.Empty)
+            if (inputBox == string.Empty)
             {
                 MessageBox.Show("Type something in the box before you update");
             }
@@ -101,7 +101,7 @@ namespace Notes.Models
                 File.Delete(folderPath);
                 using (StreamWriter sw = new StreamWriter(folderPath))
                 {
-                    sw.WriteLine(outputBox);
+                    sw.WriteLine(inputBox);
                     MessageBox.Show($"Note updated: {file}");
                 }
             }
@@ -113,13 +113,13 @@ namespace Notes.Models
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
 
-            if(File.Exists(folderPath) == false)
+            if (File.Exists(folderPath) == false)
             {
                 FileNotFoundException notFoundException = new FileNotFoundException();
                 MessageBox.Show($"{notFoundException.Message} Only existing files can be deleted");
             }
 
-            else 
+            else
             {
                 File.Delete(folderPath);
                 MessageBox.Show($"File deleted: {file}");

@@ -86,6 +86,26 @@ namespace Notes
             txtBox1.Clear();
         }
 
+        private void filesComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            string folderPath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
+
+            // Get a list of all subdirectories
+
+            var files = from file in Directory.EnumerateFiles(folderPath) select file;
+            Console.WriteLine("Files: {0}", files.Count<string>().ToString());
+            Console.WriteLine("List of Files");
+            foreach (var file in files)
+            {
+                filesComboBox.ItemsSource += file;
+            }
+        }
+
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
             FileNameLabel.Visibility = Visibility.Visible;
@@ -128,6 +148,8 @@ namespace Notes
             clearBtn.Foreground = Brushes.Black;
             clearBtn.BorderBrush = Brushes.Black;
             vLabel.Foreground = Brushes.Black;
+            MainBackBtn.Foreground = Brushes.Black;
+            MainBackBtn.BorderBrush = Brushes.Black;
         }
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
@@ -151,6 +173,8 @@ namespace Notes
             clearBtn.Foreground = Brushes.Black;
             clearBtn.BorderBrush = Brushes.Black;
             vLabel.Foreground = Brushes.Black;
+            MainBackBtn.Foreground = Brushes.Black;
+            MainBackBtn.BorderBrush = Brushes.Black;
         }
 
         private void BlackBtn_Click(object sender, RoutedEventArgs e)
@@ -174,9 +198,11 @@ namespace Notes
             clearBtn.Foreground = Brushes.White;
             clearBtn.BorderBrush = Brushes.White;
             vLabel.Foreground = Brushes.White;
+            MainBackBtn.Foreground = Brushes.White;
+            MainBackBtn.BorderBrush = Brushes.White;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OrangeGradientBtn_Click(object sender, RoutedEventArgs e)
         {
             Color startColor = (Color)ColorConverter.ConvertFromString("#FFFF7C60");
             Color endColor = (Color)ColorConverter.ConvertFromString("#FFFF4720");
@@ -201,29 +227,8 @@ namespace Notes
             clearBtn.Foreground = Brushes.White;
             clearBtn.BorderBrush = Brushes.White;
             vLabel.Foreground = Brushes.White;
-        }
-
-        private void closeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void filesComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
-            string folderPath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
-
-            // Get a list of all subdirectories
-
-            var files = from file in Directory.EnumerateFiles(folderPath) select file;
-            Console.WriteLine("Files: {0}", files.Count<string>().ToString());
-            Console.WriteLine("List of Files");
-            foreach (var file in files)
-            {
-                filesComboBox.ItemsSource += file;
-
-            }
-
+            MainBackBtn.Foreground = Brushes.White;
+            MainBackBtn.BorderBrush = Brushes.White;
         }
 
         private void MainBackBtn_Click(object sender, RoutedEventArgs e)
