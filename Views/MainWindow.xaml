@@ -29,8 +29,14 @@
         <Button x:Name="saveBtn" Visibility="Hidden" Foreground="White" Content="Save file" HorizontalAlignment="Left" Margin="171,430,0,0" VerticalAlignment="Top" Width="88" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" Height="38" />
         <Button x:Name="CreateNoteBtn" FontFamily="Bahnschrift" Content="Create a note" Background="Transparent" BorderBrush="White"  HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Center" Click="CreateNoteBtn_Click" Height="76" Width="168" Foreground="White"/>
         <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" HorizontalAlignment="Left" Margin="320,430,0,0" VerticalAlignment="Top" Width="88" Foreground="White" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" Height="38"/>
-        <Button x:Name="ReadBtn" Content="Read file" Visibility="Hidden" HorizontalAlignment="Left" Margin="629,167,0,0" VerticalAlignment="Top" Width="68" Foreground="White" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Click="ReadBtn_Click" Height="20"/>
-        <Button x:Name="DeleteFileBtn" Visibility="Hidden" Content="Delete file" FontWeight="Bold" FontFamily="Bahnschrift" HorizontalAlignment="Left" Margin="628,257,0,0" VerticalAlignment="Top" Click="DeleteFileBtn_Click" Foreground="White" Background="Transparent" RenderTransformOrigin="0.5,0.5" BorderBrush="White" Width="63"/>
+
+        <Label x:Name="DeleteFileLabel" Foreground="White" Visibility="Hidden" Content="Enter file to delete" HorizontalAlignment="Left" Margin="622,99,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DeleteFileBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="DeleteFileBtn" Visibility="Hidden" Content="Delete file" FontWeight="Bold" FontFamily="Bahnschrift" HorizontalAlignment="Left" Margin="628,153,0,0" VerticalAlignment="Top" Click="DeleteFileBtn_Click" Foreground="White" Background="Transparent" RenderTransformOrigin="0.5,0.5" BorderBrush="White" Width="62"/>
+
+        <Label x:Name="UpdateFileLabel" Visibility="Hidden" Content="Enter file to Update" HorizontalAlignment="Left" Margin="620,181,0,0" VerticalAlignment="Top" Width="124" Foreground="White"/>
+        <TextBox x:Name="UpdateBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="626,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="UpdateBtn" Content="Update file" Visibility="Hidden" HorizontalAlignment="Left" FontFamily="Bahnschrift" FontWeight="Bold" Margin="630,236,0,0" VerticalAlignment="Top" Click="UpdateBtn_Click" BorderBrush="White" Foreground="White" Background="Transparent" Width="66"/>
 
 
         <Button x:Name="WheatBtn" Content="" HorizontalAlignment="Left" Margin="668,42,0,0" VerticalAlignment="Top" BorderBrush="Wheat" Background="Wheat" Width="29" Height="24" Click="WheatBtn_Click" ClickMode="Hover">
@@ -49,12 +55,8 @@
             </Button.Resources>
         </Button>
 
-        <TextBox x:Name="ReadBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="readFileLabel" Foreground="White" Visibility="Hidden" Content="Enter file to read:" HorizontalAlignment="Left" Margin="623,114,0,0" VerticalAlignment="Top" Width="113" Height="25"/>
 
 
-        <TextBox x:Name="DeleteFileBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="DeleteFileLabel" Foreground="White" Visibility="Hidden" Content="Enter file to delete" HorizontalAlignment="Left" Margin="623,203,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="AppLabel" FontWeight="Bold" FontFamily="Bahnschrift" Content="Notes" HorizontalAlignment="Left" Margin="35,14,0,0" VerticalAlignment="Top" Height="35" Width="84" FontSize="26" Foreground="White"/>
 
         <Button x:Name="BlackBtn" Content="" HorizontalAlignment="Left" Margin="585,42,0,0" VerticalAlignment="Top" Width="29" Height="24" Background="#FF2F2F2F" Click="BlackBtn_Click" BorderBrush="#FF2F2F2F" ClickMode="Hover">
@@ -64,27 +66,24 @@
                 </Style>
             </Button.Resources>
         </Button>
-        
+
         <Button x:Name="OrangeGradientBtn" Content="" HorizontalAlignment="Left" Margin="545,42,0,0" VerticalAlignment="Top" Width="29" Height="24" Click="OrangeGradientBtn_Click" Background="#FFFF7550" BorderBrush="{x:Null}" ClickMode="Hover">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="60"/>
                 </Style>
             </Button.Resources>
-            
+
         </Button>
-        <Button x:Name="UpdateBtn" Content="Update file" Visibility="Hidden" HorizontalAlignment="Left" FontFamily="Bahnschrift" FontWeight="Bold" Margin="628,347,0,0" VerticalAlignment="Top" Click="UpdateBtn_Click" BorderBrush="White" Foreground="White" Background="Transparent" Width="66"/>
-        <TextBox x:Name="UpdateBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="UpdateFileLabel" Visibility="Hidden" Content="Enter file to Update" HorizontalAlignment="Left" Margin="624,292,0,0" VerticalAlignment="Top" Width="124" Foreground="White"/>
-        
+
         <Button x:Name="closeBtn" Content="" HorizontalAlignment="Left" Margin="752,22,0,0" VerticalAlignment="Top" Width="25" Height="27" Click="closeBtn_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="https://static.thenounproject.com/png/530778-200.png"/>
             </Button.Background>
         </Button>
-        
-        <Label x:Name="vLabel" Content="v.1.0.0" HorizontalAlignment="Left" Margin="713,470,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift"/>
-        <ComboBox x:Name="filesComboBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="628,379,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="filesComboBox_SelectionChanged"/>
+
+        <Label x:Name="vLabel" Content="v.1.0.0" HorizontalAlignment="Left" Margin="715,455,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift"/>
         <Button x:Name="MainBackBtn" Visibility="Hidden" Content="Back" HorizontalAlignment="Left" Margin="30,460,0,0" VerticalAlignment="Top" Height="22" Width="35" Background="{x:Null}" Foreground="White" BorderBrush="White" FontFamily="Bahnschrift" Click="MainBackBtn_Click"/>
+        <ListBox x:Name="NamesBox" Visibility="Hidden" Margin="560,282,16,141" SelectionChanged="NamesBox_SelectionChanged"/>
     </Grid>
 </Window>

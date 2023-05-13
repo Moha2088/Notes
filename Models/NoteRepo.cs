@@ -45,55 +45,21 @@ namespace Notes.Models
             }
         }
 
-        public void ReadFile(string fileName, string outputBox)
-        {
-            string nameOfFile = $"\\{fileName}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
-            string folderPath = filePath + nameOfFile;
-
-            if (outputBox != string.Empty)
-            {
-                MessageBox.Show("Clear the text before you read another!");
-            }
-
-            else
-            {
-                try
-                {
-                    using (StreamReader sr = new StreamReader(folderPath))
-                    {
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            outputBox += line;
-                        }
-                    }
-                }
-
-                catch (FileNotFoundException notFound)
-                {
-                    MessageBox.Show($"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
-                }
-
-               
-            }
-        }
-
         public void UpdateFile(string file, string inputBox)
         {
             string nameOfFile = $"\\{file}.txt";
             string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
             string folderPath = filePath + nameOfFile;
 
+            if (inputBox == string.Empty)
+            {
+                MessageBox.Show("Type something in the box before you update");
+            }
+
             if (File.Exists(folderPath) == false)
             {
                 FileNotFoundException notFoundException = new FileNotFoundException();
                 MessageBox.Show($"{notFoundException.Message} Only existing files can be updated");
-            }
-
-            if (inputBox == string.Empty)
-            {
-                MessageBox.Show("Type something in the box before you update");
             }
 
             else

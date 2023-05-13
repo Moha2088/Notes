@@ -3,6 +3,8 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using Notes.Models;
 
 namespace Notes
@@ -18,6 +20,7 @@ namespace Notes
         {
             InitializeComponent();
             DataContext = this;
+            NamesBoxInit();
         }
 
         NoteRepo noteRepo = new NoteRepo();
@@ -30,40 +33,7 @@ namespace Notes
             fileCrud(txtBox1.Text, FileNameBox.Text);
         }
 
-        private void ReadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //noteRepo.ReadFile(ReadBox.Text, txtBox1.Text);
-
-            string nameOfFile = $"\\{ReadBox.Text}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
-            string folderPath = filePath + nameOfFile;
-
-            if (txtBox1.Text != string.Empty)
-            {
-                MessageBox.Show("Clear the text before you read another!");
-            }
-
-            else
-            {
-                try
-                {
-                    using (StreamReader sr = new StreamReader(folderPath))
-                    {
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            txtBox1.Text += line;
-                        }
-                    }
-                }
-
-                catch (FileNotFoundException notFound)
-                {
-                    MessageBox.Show(
-                        $"{notFound.Message} Go to {filePath} to check the files and their names, and type in a valid name");
-                }
-            }
-        }
+       
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -86,20 +56,7 @@ namespace Notes
             txtBox1.Clear();
         }
 
-        private void filesComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            string folderPath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
 
-            // Get a list of all subdirectories
-
-            var files = from file in Directory.EnumerateFiles(folderPath) select file;
-            Console.WriteLine("Files: {0}", files.Count<string>().ToString());
-            Console.WriteLine("List of Files");
-            foreach (var file in files)
-            {
-                filesComboBox.ItemsSource += file;
-            }
-        }
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -112,18 +69,15 @@ namespace Notes
             FileNameBox.Visibility = Visibility.Visible;
             CreateNoteBtn.Visibility = Visibility.Hidden;
             saveBtn.Visibility = Visibility.Visible;
-            ReadBtn.Visibility = Visibility.Visible;
             clearBtn.Visibility = Visibility.Visible;
             txtBox1.Visibility = Visibility.Visible;
-            ReadBox.Visibility = Visibility.Visible;
-            readFileLabel.Visibility = Visibility.Visible;
             DeleteFileLabel.Visibility = Visibility.Visible;
             DeleteFileBox.Visibility = Visibility.Visible;
             DeleteFileBtn.Visibility = Visibility.Visible;
             UpdateFileLabel.Visibility = Visibility.Visible;
             UpdateBox.Visibility = Visibility.Visible;
             UpdateBtn.Visibility = Visibility.Visible;
-            filesComboBox.Visibility = Visibility.Visible;
+            NamesBox.Visibility = Visibility.Visible;
             MainBackBtn.Visibility = Visibility.Visible;
         }
 
@@ -135,10 +89,7 @@ namespace Notes
             MainGrid.Background = Brushes.Wheat;
             AppLabel.Foreground = Brushes.Black;
             saveBtn.Foreground = Brushes.Black;
-            saveBtn.BorderBrush = Brushes.Black;
-            readFileLabel.Foreground = Brushes.Black;
-            ReadBtn.Foreground = Brushes.Black;
-            ReadBtn.BorderBrush = Brushes.Black;
+            saveBtn.BorderBrush = Brushes.Black;        
             UpdateFileLabel.Foreground = Brushes.Black;
             UpdateBtn.Foreground = Brushes.Black;
             UpdateBtn.BorderBrush = Brushes.Black;
@@ -146,8 +97,7 @@ namespace Notes
             DeleteFileBtn.Foreground = Brushes.Black;
             DeleteFileBtn.BorderBrush = Brushes.Black;
             clearBtn.Foreground = Brushes.Black;
-            clearBtn.BorderBrush = Brushes.Black;
-            vLabel.Foreground = Brushes.Black;
+            clearBtn.BorderBrush = Brushes.Black;      
             MainBackBtn.Foreground = Brushes.Black;
             MainBackBtn.BorderBrush = Brushes.Black;
         }
@@ -161,9 +111,6 @@ namespace Notes
             AppLabel.Foreground = Brushes.Black;
             saveBtn.Foreground = Brushes.Black;
             saveBtn.BorderBrush = Brushes.Black;
-            readFileLabel.Foreground = Brushes.Black;
-            ReadBtn.Foreground = Brushes.Black;
-            ReadBtn.BorderBrush = Brushes.Black;
             UpdateFileLabel.Foreground = Brushes.Black;
             UpdateBtn.Foreground = Brushes.Black;
             UpdateBtn.BorderBrush = Brushes.Black;
@@ -171,8 +118,7 @@ namespace Notes
             DeleteFileBtn.Foreground = Brushes.Black;
             DeleteFileBtn.BorderBrush = Brushes.Black;
             clearBtn.Foreground = Brushes.Black;
-            clearBtn.BorderBrush = Brushes.Black;
-            vLabel.Foreground = Brushes.Black;
+            clearBtn.BorderBrush = Brushes.Black;       
             MainBackBtn.Foreground = Brushes.Black;
             MainBackBtn.BorderBrush = Brushes.Black;
         }
@@ -186,9 +132,6 @@ namespace Notes
             AppLabel.Foreground = Brushes.White;
             saveBtn.Foreground = Brushes.White;
             saveBtn.BorderBrush = Brushes.White;
-            readFileLabel.Foreground = Brushes.White;
-            ReadBtn.Foreground = Brushes.White;
-            ReadBtn.BorderBrush = Brushes.White;
             UpdateFileLabel.Foreground = Brushes.White;
             UpdateBtn.Foreground = Brushes.White;
             UpdateBtn.BorderBrush = Brushes.White;
@@ -196,8 +139,7 @@ namespace Notes
             DeleteFileBtn.Foreground = Brushes.White;
             DeleteFileBtn.BorderBrush = Brushes.White;
             clearBtn.Foreground = Brushes.White;
-            clearBtn.BorderBrush = Brushes.White;
-            vLabel.Foreground = Brushes.White;
+            clearBtn.BorderBrush = Brushes.White;         
             MainBackBtn.Foreground = Brushes.White;
             MainBackBtn.BorderBrush = Brushes.White;
         }
@@ -215,9 +157,6 @@ namespace Notes
             AppLabel.Foreground = Brushes.White;
             saveBtn.Foreground = Brushes.White;
             saveBtn.BorderBrush = Brushes.White;
-            readFileLabel.Foreground = Brushes.White;
-            ReadBtn.Foreground = Brushes.White;
-            ReadBtn.BorderBrush = Brushes.White;
             UpdateFileLabel.Foreground = Brushes.White;
             UpdateBtn.Foreground = Brushes.White;
             UpdateBtn.BorderBrush = Brushes.White;
@@ -225,8 +164,7 @@ namespace Notes
             DeleteFileBtn.Foreground = Brushes.White;
             DeleteFileBtn.BorderBrush = Brushes.White;
             clearBtn.Foreground = Brushes.White;
-            clearBtn.BorderBrush = Brushes.White;
-            vLabel.Foreground = Brushes.White;
+            clearBtn.BorderBrush = Brushes.White;         
             MainBackBtn.Foreground = Brushes.White;
             MainBackBtn.BorderBrush = Brushes.White;
         }
@@ -237,19 +175,44 @@ namespace Notes
             FileNameBox.Visibility = Visibility.Hidden;
             CreateNoteBtn.Visibility = Visibility.Visible;
             saveBtn.Visibility = Visibility.Hidden;
-            ReadBtn.Visibility = Visibility.Hidden;
             clearBtn.Visibility = Visibility.Hidden;
             txtBox1.Visibility = Visibility.Hidden;
-            ReadBox.Visibility = Visibility.Hidden;
-            readFileLabel.Visibility = Visibility.Hidden;
             DeleteFileLabel.Visibility = Visibility.Hidden;
             DeleteFileBox.Visibility = Visibility.Hidden;
             DeleteFileBtn.Visibility = Visibility.Hidden;
             UpdateFileLabel.Visibility = Visibility.Hidden;
             UpdateBox.Visibility = Visibility.Hidden;
             UpdateBtn.Visibility = Visibility.Hidden;
-            filesComboBox.Visibility = Visibility.Hidden;
+            NamesBox.Visibility = Visibility.Hidden;
             MainBackBtn.Visibility = Visibility.Hidden;
+        }
+
+      
+        void NamesBoxInit()
+        {
+            string[] txtFileNames = Directory.GetFiles("C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)");
+            NamesBox.ItemsSource = txtFileNames;
+        }
+
+        private void NamesBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            using (StreamReader sr = new StreamReader(NamesBox.SelectedItem.ToString()))
+            {
+                string line;
+
+                if (txtBox1.Text != string.Empty)
+                {
+                    MessageBox.Show("Clear the text befoer you read another");
+                }
+
+                else
+                {
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        txtBox1.Text += line;              
+                    }
+                }
+            }
         }
     }
 }
