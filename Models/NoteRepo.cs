@@ -4,18 +4,20 @@ using System.Windows;
 
 namespace Notes.Models
 {
-    internal class NoteRepo
+    public class NoteRepo
     {
         public void SaveFile(string file, string fileName)
         {
-            if (file == string.Empty)
-            {
-                MessageBox.Show("Type something in the box before you save");
-            }
+          
 
             if (fileName == string.Empty)
             {
                 MessageBox.Show("The file needs a name");
+            }
+
+            if (file == string.Empty)
+            {
+                MessageBox.Show("Type something in the box before you save");
             }
 
             if (file.Length < 10)
@@ -39,57 +41,28 @@ namespace Notes.Models
                     using (StreamWriter sw = new StreamWriter(folderPath))
                     {
                         sw.WriteLine(file);
-                        MessageBox.Show($"Note saved: {fileName}");
+                        MessageBox.Show($"File saved: {fileName}");
                     }
                 }
             }
         }
 
-        public void UpdateFile(string file, string inputBox)
+        public void UpdateFile(string selectedItem, string inputBox)
         {
-            string nameOfFile = $"\\{file}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
-            string folderPath = filePath + nameOfFile;
-
-            if (inputBox == string.Empty)
-            {
-                MessageBox.Show("Type something in the box before you update");
+            File.Delete(selectedItem);
+            using(StreamWriter sw = new StreamWriter(selectedItem)) 
+            { 
+                sw.WriteLine(inputBox);
             }
 
-            if (File.Exists(folderPath) == false)
-            {
-                FileNotFoundException notFoundException = new FileNotFoundException();
-                MessageBox.Show($"{notFoundException.Message} Only existing files can be updated");
-            }
-
-            else
-            {
-                File.Delete(folderPath);
-                using (StreamWriter sw = new StreamWriter(folderPath))
-                {
-                    sw.WriteLine(inputBox);
-                    MessageBox.Show($"Note updated: {file}");
-                }
-            }
+            MessageBox.Show($"File updated: {selectedItem}");
         }
 
         public void DeleteFile(string file)
         {
-            string nameOfFile = $"\\{file}.txt";
-            string filePath = "C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)";
-            string folderPath = filePath + nameOfFile;
+            File.Delete(file);
 
-            if (File.Exists(folderPath) == false)
-            {
-                FileNotFoundException notFoundException = new FileNotFoundException();
-                MessageBox.Show($"{notFoundException.Message} Only existing files can be deleted");
-            }
-
-            else
-            {
-                File.Delete(folderPath);
-                MessageBox.Show($"File deleted: {file}");
-            }
+            MessageBox.Show($"{file} deleted");
         }
     }
 }
