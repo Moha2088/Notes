@@ -9,7 +9,7 @@ namespace Notes.Models
         public void SaveFile(string file, string fileName)
         {
           
-
+                
             if (fileName == string.Empty)
             {
                 MessageBox.Show("The file needs a name");

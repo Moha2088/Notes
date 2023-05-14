@@ -17,32 +17,29 @@ namespace Notes
     /// </summary>
     public partial class MainWindow : Window
     {
-        NoteRepo noteRepo = new NoteRepo();
+        MainViewModel mvm = new MainViewModel();
 
         public MainWindow()
         {
-            MainViewModel mvm = new MainViewModel();
             InitializeComponent();
             DataContext = mvm;
-            
         }
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            FileCrud saveCrud = noteRepo.SaveFile;
+            FileCrud saveCrud = mvm.Save;
             saveCrud(txtBox1.Text, FileNameBox.Text);
-
         }
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
-            FileCrud updateCrud = noteRepo.UpdateFile;
+            FileCrud updateCrud = mvm.Update;
             updateCrud(NamesBox.SelectedItem.ToString(), txtBox1.Text);
         }
 
         private void DeleteFileBtn_Click(object sender, RoutedEventArgs e)
         {
-            noteRepo.DeleteFile(NamesBox.SelectedItem.ToString());
+            mvm.Delete(NamesBox.SelectedItem.ToString());
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)
@@ -177,21 +174,29 @@ namespace Notes
 
         private void NamesBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            using (StreamReader sr = new StreamReader(NamesBox.SelectedItem.ToString()))
+            if (txtBox1.Text != string.Empty)
             {
-                string line;
+                MessageBox.Show("Clear the text befoer you read another");
+            }
 
-                if (txtBox1.Text != string.Empty)
+            else
+            {
+                try
                 {
-                    MessageBox.Show("Clear the text befoer you read another");
+                    using (StreamReader sr = new StreamReader(NamesBox.SelectedItem.ToString()))
+                    {
+                        string line;
+
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            txtBox1.Text += line;
+                        }
+                    }
                 }
 
-                else
+                catch (FileNotFoundException Ex) 
                 {
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        txtBox1.Text += line;
-                    }
+                    MessageBox.Show(Ex.Message);
                 }
             }
         }
