@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notes"
         mc:Ignorable="d"
-        Title="Notes" Height="500" Width="800"
+        Title="Notes" Height="520" Width="820"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None">
+        WindowStyle="SingleBorderWindow"
+        >
 
 
     <Grid x:Name="MainGrid" Margin="-9,-14,-9,-37" Height="NaN">
@@ -21,6 +22,8 @@
             <ColumnDefinition Width="391*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
+
+        <Label x:Name="AppLabel" FontWeight="Bold" FontFamily="Bahnschrift" Content="Notes" HorizontalAlignment="Left" Margin="35,14,0,0" VerticalAlignment="Top" Height="35" Width="84" FontSize="26" Foreground="White"/>
 
         <TextBox x:Name="FileNameBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="35,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
         <Label x:Name="FileNameLabel" Visibility="Hidden" Content="Filename" HorizontalAlignment="Left" Margin="30,58,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -51,9 +54,6 @@
         </Button>
 
 
-
-        <Label x:Name="AppLabel" FontWeight="Bold" FontFamily="Bahnschrift" Content="Notes" HorizontalAlignment="Left" Margin="35,14,0,0" VerticalAlignment="Top" Height="35" Width="84" FontSize="26" Foreground="White"/>
-
         <Button x:Name="BlackBtn" Content="" HorizontalAlignment="Left" Margin="585,42,0,0" VerticalAlignment="Top" Width="29" Height="24" Background="#FF2F2F2F" Click="BlackBtn_Click" BorderBrush="#FF2F2F2F" ClickMode="Hover">
             <Button.Resources>
                 <Style TargetType="Border">
@@ -68,7 +68,6 @@
                     <Setter Property="CornerRadius" Value="60"/>
                 </Style>
             </Button.Resources>
-
         </Button>
 
         <Button x:Name="closeBtn" Content="" HorizontalAlignment="Left" Margin="752,22,0,0" VerticalAlignment="Top" Width="25" Height="27" Click="closeBtn_Click" BorderBrush="{x:Null}">

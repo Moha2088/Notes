@@ -174,6 +174,7 @@ namespace Notes
 
         private void NamesBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            //txtBox1.Clear();
             //mvm.DisplayFiles(NamesBox.SelectedItem.ToString(), txtBox1.Text);
 
             txtBox1.Clear();
@@ -195,7 +196,6 @@ namespace Notes
             {
                 MessageBox.Show($"{ex.Message}");
             }
-
         }
     }
 }
