@@ -24,7 +24,6 @@ namespace Notes.ViewModels
 
         public string CurrentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm ");
 
-
         private string[] _txtFileNames;
 
         public string[] TxtFileNames
@@ -37,6 +36,9 @@ namespace Notes.ViewModels
                 OnPropertyChanged(nameof(TxtFileNames));
             }
         }
+
+
+
 
         public void Save(string file, string fileName)
         {
@@ -53,26 +55,26 @@ namespace Notes.ViewModels
             noteRepo.DeleteFile(file);
         }
 
-        /*public void DisplayFiles(string selectedItem, string outputBox)
+        public void DisplayFiles(string selectedItem, string outputBox)
         {
-            using (StreamReader sr = new StreamReader(selectedItem))
+            try
             {
-                string line;
-
-                if (outputBox != string.Empty)
+                using (StreamReader sr = new StreamReader(selectedItem))
                 {
-                    MessageBox.Show("Clear the text before you read another!");
-                }
+                    string line;
 
-                else
-                {
-                    while((line = sr.ReadLine()) != null)
+                    while ((line = sr.ReadLine()) != null)
                     {
                         outputBox += line;
                     }
                 }
             }
-        }*/
+
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+            }
+        }
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -80,3 +82,4 @@ namespace Notes.ViewModels
         }
     }
 }
+

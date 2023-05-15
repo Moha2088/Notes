@@ -174,31 +174,28 @@ namespace Notes
 
         private void NamesBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (txtBox1.Text != string.Empty)
-            {
-                MessageBox.Show("Clear the text befoer you read another");
-            }
+            //mvm.DisplayFiles(NamesBox.SelectedItem.ToString(), txtBox1.Text);
 
-            else
+            txtBox1.Clear();
+
+            try
             {
-                try
+                using (StreamReader sr = new StreamReader(NamesBox.SelectedItem.ToString()))
                 {
-                    using (StreamReader sr = new StreamReader(NamesBox.SelectedItem.ToString()))
-                    {
-                        string line;
+                    string line;
 
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            txtBox1.Text += line;
-                        }
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        txtBox1.Text += line;
                     }
                 }
-
-                catch (FileNotFoundException Ex) 
-                {
-                    MessageBox.Show(Ex.Message);
-                }
             }
+
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+            }
+
         }
     }
 }
