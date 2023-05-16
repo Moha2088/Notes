@@ -32,7 +32,9 @@
         <Button x:Name="saveBtn" Visibility="Hidden" Foreground="White" Content="Save file" HorizontalAlignment="Left" Margin="171,430,0,0" VerticalAlignment="Top" Width="88" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" Height="38" />
         <Button x:Name="CreateNoteBtn" FontFamily="Bahnschrift" Content="Create a note" Background="Transparent" BorderBrush="White"  HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Center" Click="CreateNoteBtn_Click" Height="76" Width="168" Foreground="White"/>
         <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" HorizontalAlignment="Left" Margin="320,430,0,0" VerticalAlignment="Top" Width="88" Foreground="White" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" Height="38"/>
-
+        
+        
+        
         <Button x:Name="DeleteFileBtn" Visibility="Hidden" Content="Delete file" FontWeight="Bold" FontFamily="Bahnschrift" HorizontalAlignment="Left" Margin= "628,210,0,0" VerticalAlignment="Top" Click="DeleteFileBtn_Click" Foreground="White" Background="Transparent" RenderTransformOrigin="0.5,0.5" BorderBrush="White" Width="107" Height="51"/>
         <Button x:Name="UpdateBtn" Content="Update file" Visibility="Hidden" HorizontalAlignment="Left" FontFamily="Bahnschrift" FontWeight="Bold" Margin= "628,120,0,0" VerticalAlignment="Top" Click="UpdateBtn_Click" BorderBrush="White" Foreground="White" Background="Transparent" Width="108" Height="51"/>
 
@@ -70,6 +72,15 @@
             </Button.Resources>
         </Button>
 
+        <Button x:Name="PurpleGradientBtn" Content="" HorizontalAlignment="Left" Margin="505,42,0,0" VerticalAlignment="Top" Width="29" Height="24" Click="PurpleGradientBtn_OnClick" Background="#FF9370db" BorderBrush="{x:Null}" ClickMode="Hover">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="60"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        
+        
         <Button x:Name="closeBtn" Content="" HorizontalAlignment="Left" Margin="752,22,0,0" VerticalAlignment="Top" Width="25" Height="27" Click="closeBtn_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="https://static.thenounproject.com/png/530778-200.png"/>

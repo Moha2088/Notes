@@ -155,6 +155,30 @@ namespace Notes
             MainBackBtn.BorderBrush = Brushes.White;
         }
 
+        private void PurpleGradientBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            Color startColor = (Color)ColorConverter.ConvertFromString("#2E2157");
+            Color endColor = (Color)ColorConverter.ConvertFromString("#FF00ff");
+            LinearGradientBrush gradientBrush = new LinearGradientBrush(startColor, endColor, 90);
+
+            MainGrid.Background = gradientBrush;
+            FileNameLabel.Foreground = Brushes.White;
+            CreateNoteBtn.Foreground = Brushes.White;
+            CreateNoteBtn.BorderBrush = Brushes.White;
+            MainGrid.Background = gradientBrush;
+            AppLabel.Foreground = (Brush)(new BrushConverter().ConvertFrom("#7AD7F0"));
+            saveBtn.Foreground = Brushes.White;
+            saveBtn.BorderBrush = Brushes.White;
+            UpdateBtn.Foreground = Brushes.White;
+            UpdateBtn.BorderBrush = Brushes.White;
+            DeleteFileBtn.Foreground = Brushes.White;
+            DeleteFileBtn.BorderBrush = Brushes.White;
+            clearBtn.Foreground = Brushes.White;
+            clearBtn.BorderBrush = Brushes.White;
+            MainBackBtn.Foreground = Brushes.White;
+            MainBackBtn.BorderBrush = Brushes.White;
+        }
+
         private void MainBackBtn_Click(object sender, RoutedEventArgs e)
         {
             FileNameLabel.Visibility = Visibility.Hidden;
