@@ -1,14 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Media;
-using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Office2010.ExcelAc;
-using Notes.Models;
 using Notes.ViewModels;
 
-namespace Notes
+namespace Notes.Views
 {
     delegate void FileCrud(string a, string b);
 

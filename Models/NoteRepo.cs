@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
 
 
@@ -7,11 +8,12 @@ namespace Notes.Models
     public class NoteRepo
     {
         public void SaveFile(string file, string fileName)
-        {       
+        {
             if (fileName == string.Empty)
             {
                 MessageBox.Show("The file needs a name");
             }
+
 
             if (file == string.Empty)
             {
@@ -38,7 +40,7 @@ namespace Notes.Models
                 {
                     using (StreamWriter sw = new StreamWriter(folderPath))
                     {
-                        sw.WriteLine(file);
+                        sw.WriteLine($"{DateTime.Now.ToString("dd-MMMM-yyyy - HH:MM")}: {file}");
                         MessageBox.Show($"File saved: {fileName}");
                     }
                 }
@@ -47,20 +49,27 @@ namespace Notes.Models
 
         public void UpdateFile(string selectedItem, string inputBox)
         {
-            File.Delete(selectedItem);
-            using(StreamWriter sw = new StreamWriter(selectedItem)) 
-            { 
-                sw.WriteLine(inputBox);
+            if (inputBox == string.Empty)
+            {
+                MessageBox.Show("Type something in the box before you update");
             }
 
-            MessageBox.Show($"File updated: {selectedItem}");
+            else
+            {
+                File.Delete(selectedItem);
+                using (StreamWriter sw = new StreamWriter(selectedItem))
+                {
+                    sw.WriteLine(inputBox);
+                }
+
+                MessageBox.Show($"File updated: {selectedItem}");
+            }
         }
 
         public void DeleteFile(string file)
         {
             File.Delete(file);
-
-            MessageBox.Show($"{file} deleted");
+            MessageBox.Show($"File deleted: {file}");
         }
     }
 }

@@ -1,13 +1,8 @@
 ﻿using Notes.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Markup;
 
 namespace Notes.ViewModels
 {
@@ -21,8 +16,7 @@ namespace Notes.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public NoteRepo noteRepo = new NoteRepo();
-
-        public string CurrentDate { get; set; } = DateTime.Now.ToString("dd/MMMM/yyyy / HH:mm ");
+        
 
         private string[] _txtFileNames;
 
@@ -36,10 +30,7 @@ namespace Notes.ViewModels
                 OnPropertyChanged(nameof(TxtFileNames));
             }
         }
-
-
-
-
+        
         public void Save(string file, string fileName)
         {
             noteRepo.SaveFile(file, fileName);
