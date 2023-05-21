@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace Notes.ViewModels
@@ -11,12 +12,15 @@ namespace Notes.ViewModels
         public MainViewModel()
         {
             TxtFileNames = Directory.GetFiles("C:\\Users\\maxam\\Desktop\\NoteFolder(Notes)");
+            FileCount = TxtFileNames.Count();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public NoteRepo noteRepo = new NoteRepo();
-        
+
+
+        public int FileCount { get; set; }
 
         private string[] _txtFileNames;
 
@@ -30,7 +34,7 @@ namespace Notes.ViewModels
                 OnPropertyChanged(nameof(TxtFileNames));
             }
         }
-        
+
 
 
 

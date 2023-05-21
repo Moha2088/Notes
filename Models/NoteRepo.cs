@@ -9,20 +9,24 @@ namespace Notes.Models
     {
         public void SaveFile(string file, string fileName)
         {
-            if (fileName == string.Empty)
-            {
-                MessageBox.Show("The file needs a name");
-            }
-
-
             if (file == string.Empty)
             {
-                MessageBox.Show("Type something in the box before you save");
+                MessageBox.Show("Type something in the box before you save!");
             }
 
             if (file.Length < 10)
             {
                 MessageBox.Show("Please write a longer text");
+            }
+
+            if (fileName == string.Empty)
+            {
+                MessageBox.Show("The file needs a name!");
+            }
+
+            else if (fileName == string.Empty)
+            {
+                MessageBox.Show("Invalid filename!");
             }
 
             else
@@ -51,7 +55,7 @@ namespace Notes.Models
         {
             if (inputBox == string.Empty)
             {
-                MessageBox.Show("Type something in the box before you update");
+                MessageBox.Show("Type something in the box before you update!");
             }
 
             else

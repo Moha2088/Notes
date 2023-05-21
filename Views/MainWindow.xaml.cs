@@ -67,6 +67,9 @@ namespace Notes.Views
             Circle1.Visibility = Visibility.Hidden;
             Circle2.Visibility = Visibility.Hidden;
             Circle3.Visibility = Visibility.Hidden;
+            NamesBoxLabel.Visibility = Visibility.Visible;
+            NamesBoxCount.Visibility = Visibility.Visible;
+
         }
 
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
@@ -86,6 +89,9 @@ namespace Notes.Views
             clearBtn.BorderBrush = Brushes.Black;
             MainBackBtn.Foreground = Brushes.Black;
             MainBackBtn.BorderBrush = Brushes.Black;
+            NamesBoxLabel.Foreground = Brushes.Black;
+            NamesBoxCount.Foreground = Brushes.Black;
+
         }
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)
@@ -106,6 +112,8 @@ namespace Notes.Views
             clearBtn.BorderBrush = Brushes.Black;
             MainBackBtn.Foreground = Brushes.Black;
             MainBackBtn.BorderBrush = Brushes.Black;
+            NamesBoxLabel.Foreground = Brushes.Black;
+            NamesBoxCount.Foreground = Brushes.Black;
         }
 
         private void BlackBtn_Click(object sender, RoutedEventArgs e)
@@ -125,6 +133,8 @@ namespace Notes.Views
             clearBtn.BorderBrush = Brushes.White;
             MainBackBtn.Foreground = Brushes.White;
             MainBackBtn.BorderBrush = Brushes.White;
+            NamesBoxLabel.Foreground = Brushes.White;
+            NamesBoxCount.Foreground = Brushes.White;
         }
 
         private void OrangeGradientBtn_Click(object sender, RoutedEventArgs e)
@@ -148,6 +158,8 @@ namespace Notes.Views
             clearBtn.BorderBrush = Brushes.White;
             MainBackBtn.Foreground = Brushes.White;
             MainBackBtn.BorderBrush = Brushes.White;
+            NamesBoxLabel.Foreground = Brushes.White;
+            NamesBoxCount.Foreground = Brushes.White;
         }
 
         private void PurpleGradientBtn_OnClick(object sender, RoutedEventArgs e)
@@ -172,6 +184,8 @@ namespace Notes.Views
             clearBtn.BorderBrush = Brushes.White;
             MainBackBtn.Foreground = Brushes.White;
             MainBackBtn.BorderBrush = Brushes.White;
+            NamesBoxLabel.Foreground = Brushes.White;
+            NamesBoxCount.Foreground = Brushes.White;
         }
 
         private void MainBackBtn_Click(object sender, RoutedEventArgs e)
@@ -189,6 +203,8 @@ namespace Notes.Views
             Circle1.Visibility = Visibility.Visible;
             Circle2.Visibility = Visibility.Visible;
             Circle3.Visibility = Visibility.Visible;
+            NamesBoxLabel.Visibility = Visibility.Hidden;
+            NamesBoxCount.Visibility = Visibility.Hidden;
         }
 
         private void NamesBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
