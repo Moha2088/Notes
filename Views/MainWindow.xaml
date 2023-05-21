@@ -89,7 +89,7 @@
 
         <Label x:Name="vLabel" Content="v.1.0.0" HorizontalAlignment="Left" Margin="886,537,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift"/>
         <Button x:Name="MainBackBtn" Visibility="Hidden" Content="Back" HorizontalAlignment="Left" Margin="35,459,0,0" VerticalAlignment="Top" Height="35" Width="66" Background="{x:Null}" Foreground="White" BorderBrush="White" FontFamily="Bahnschrift" Click="MainBackBtn_Click"/>
-        <ListBox x:Name="NamesBox" Visibility="Visible" ItemsSource="{Binding TxtFileNames}" Margin="560,144,16,223" SelectionChanged="NamesBox_SelectionChanged"/>
+        <ListBox x:Name="NamesBox" Visibility="Hidden" ItemsSource="{Binding TxtFileNames}" Margin="560,144,16,223" SelectionChanged="NamesBox_SelectionChanged"/>
         <Image x:Name="Circle2" Visibility="Visible" HorizontalAlignment="Left" Height="200" Margin="741,93,0,0" VerticalAlignment="Top" Width="242" Source="https://circle.so/wp-content/uploads/Ellipse-261.png" OpacityMask="Black"/>
         <Image x:Name="Circle1" HorizontalAlignment="Left" Height="280" Margin="-39,122,0,0" VerticalAlignment="Top" Width="326" Source="https://circle.so/wp-content/uploads/Ellipse-261.png" OpacityMask="#FFF9EDED" Opacity="0.4"/>
         <Image x:Name="Circle3" HorizontalAlignment="Left" Height="58" Margin="704,442,0,0" VerticalAlignment="Top" Width="84" Source="https://circle.so/wp-content/uploads/Ellipse-261.png" OpacityMask="Black"/>
