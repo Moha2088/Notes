@@ -5,7 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Skærmbillede 2023-05-09 082705.ico</ApplicationIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,17 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Notesimg.png" />
     <None Remove="NotesSpash" />
     <None Remove="NTApp logo.ico" />
+    <None Remove="SplashScreen.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Skærmbillede 2023-05-09 082705.ico" />
+    <Content Include="Icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <SplashScreen Include="Notesimg.png" />
+    <SplashScreen Include="SplashScreen.png" />
   </ItemGroup>
 
 </Project>
