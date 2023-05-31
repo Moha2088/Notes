@@ -44,7 +44,7 @@ namespace Notes.Models
                 {
                     using (StreamWriter sw = new StreamWriter(folderPath))
                     {
-                        sw.WriteLine($"{DateTime.Now.ToString("dd-MMMM-yyyy - HH:MM")}: {file}");
+                        sw.WriteLine($"{DateTime.Now.ToString()}: {file}");
                         MessageBox.Show($"File saved: {fileName}");
                     }
                 }
