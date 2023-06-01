@@ -1,9 +1,11 @@
 ﻿using Notes.Models;
+using Notes.ViewModels.Commands;
 using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Notes.ViewModels
 {
@@ -26,7 +28,7 @@ namespace Notes.ViewModels
 
         public string[] TxtFileNames
         {
-            get { return _txtFileNames; }
+            get { return _txtFileNames; }   
 
             set
             {
@@ -36,7 +38,7 @@ namespace Notes.ViewModels
         }
 
 
-
+        public ICommand NoteCommand { get; } = new NoteCommands();
 
         public void Save(string file, string fileName)
         {
