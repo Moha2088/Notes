@@ -38,22 +38,17 @@ namespace Notes.ViewModels
         }
 
 
-        public ICommand NoteCommand { get; } = new NoteCommands();
 
-        public void Save(string file, string fileName)
-        {
-            noteRepo.SaveFile(file, fileName);
-        }
+        public ICommand NoteCommand { get; } = new UpdateCommand();
 
-        public void Update(string selectedItem, string inputBox)
-        {
-            noteRepo.UpdateFile(selectedItem, inputBox);
-        }
+        public void Save(string file, string fileName) => noteRepo.SaveFile(file, fileName);
+        
+        public void Update(string selectedItem, string inputBox) => noteRepo.UpdateFile(selectedItem, inputBox);
 
-        public void Delete(string file)
-        {
-            noteRepo.DeleteFile(file);
-        }
+        public void Delete(string file) => noteRepo.DeleteFile(file);
+
+
+
 
         public void DisplayFiles(string selectedItem, string outputBox)
         {

@@ -24,7 +24,7 @@ namespace Notes.Models
                 MessageBox.Show("The file needs a name!");
             }
 
-            else if (fileName == string.Empty)
+            else if (fileName == ".txt")
             {
                 MessageBox.Show("Invalid filename!");
             }

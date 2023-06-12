@@ -1,9 +1,10 @@
-﻿using System;   
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Notes.ViewModels.Commands
 {
-    class NoteCommands : ICommand
+    class UpdateCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged
         {
@@ -18,7 +19,11 @@ namespace Notes.ViewModels.Commands
 
         public void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            if (parameter is MainViewModel) 
+            {
+               
+            }
         }
+        
     }
 }

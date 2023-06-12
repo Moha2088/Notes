@@ -47,10 +47,10 @@ namespace Notes.Views
             txtBox1.Clear();
         }
 
-        private void closeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void closeBtn_Click(object sender, RoutedEventArgs e) => Close();
+
+
+
 
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
