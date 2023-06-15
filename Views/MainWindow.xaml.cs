@@ -24,6 +24,7 @@ namespace Notes.Views
         {
             FileCrud saveCrud = mvm.Save;
             saveCrud(txtBox1.Text, FileNameBox.Text);
+            NamesBox.Items.Refresh();
         }
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
@@ -35,6 +36,7 @@ namespace Notes.Views
         private void DeleteFileBtn_Click(object sender, RoutedEventArgs e)
         {
             mvm.Delete(NamesBox.SelectedItem.ToString());
+            NamesBox.Items.Refresh();
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)

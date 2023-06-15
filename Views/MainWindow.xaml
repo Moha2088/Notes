@@ -23,10 +23,10 @@
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="AppLabel" FontWeight="Bold" FontFamily="Bahnschrift" Content="Notes" HorizontalAlignment="Left" Margin="30,26,0,0" VerticalAlignment="Top" Height="35" Width="84" FontSize="26" Foreground="#7AD7F0"/>
+        <Label x:Name="AppLabel" FontWeight="Bold" FontFamily="Bahnschrift" Content="Notes" HorizontalAlignment="Left" Margin="30,17,0,0" VerticalAlignment="Top" Height="35" Width="84" FontSize="26" Foreground="#7AD7F0"/>
 
-        <TextBox x:Name="FileNameBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="35,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontFamily="Bahnschrift"/>
-        <Label x:Name="FileNameLabel" FontWeight="Bold" Visibility="Hidden" Content="Filename" HorizontalAlignment="Left" Margin="30,83,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="FileNameBox" Visibility="Hidden" HorizontalAlignment="Left" Margin="35,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontFamily="Bahnschrift"/>
+        <Label x:Name="FileNameLabel" FontWeight="Bold" FontFamily="Bahnschrift" Visibility="Hidden" Content="Filename" HorizontalAlignment="Left" Margin="30,66,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="txtBox1" Visibility="Hidden" AcceptsReturn="true" AcceptsTab="true" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="484" Height="296" Margin="35,144,0,0" FontFamily="Bahnschrift" />
 
         <Button x:Name="saveBtn" Visibility="Hidden" Cursor="Hand" Foreground="White" Content="Save file" HorizontalAlignment="Left" Margin="171,530,0,0" VerticalAlignment="Top" Width="88" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="saveBtn_Click" Height="38">
@@ -40,7 +40,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        
+
         <Button x:Name="CreateNoteBtn" FontFamily="Bahnschrift" Cursor="Hand" Content="Create a note" Background="Transparent" BorderBrush="White"  HorizontalAlignment="Left" Margin="398,0,0,0" VerticalAlignment="Center" Click="CreateNoteBtn_Click" Height="76" Width="168" Foreground="White">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -52,7 +52,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        
+
         <Button x:Name="clearBtn" Content="Clear Text" Visibility="Hidden" Cursor="Hand" HorizontalAlignment="Left" Margin="320,530,0,0" VerticalAlignment="Top" Width="88" Foreground="White" Background="Transparent" BorderBrush="White" FontFamily="Bahnschrift" FontWeight="Bold" Click="clearBtn_Click" RenderTransformOrigin="0.5,0.5" Height="38">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -78,7 +78,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-            
+
         <Button x:Name="UpdateBtn" Content="Update file" Visibility="Hidden" Cursor="Hand" HorizontalAlignment="Left" FontFamily="Bahnschrift" FontWeight="Bold" Margin= "618,530,0,0" VerticalAlignment="Top" Click="UpdateBtn_Click" BorderBrush="White" Foreground="White" Background="Transparent" Width="87" Height="38">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -179,7 +179,7 @@
         </Button>
 
         <Label x:Name="vLabel" Content="v.1.0.0" HorizontalAlignment="Left" Margin="886,537,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift"/>
-        
+
         <Button x:Name="MainBackBtn" Visibility="Hidden" Content="Back" Cursor="Hand" HorizontalAlignment="Left" Margin="35,459,0,0" VerticalAlignment="Top" Height="35" Width="66" Background="{x:Null}" Foreground="White" BorderBrush="White" FontFamily="Bahnschrift" Click="MainBackBtn_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -191,7 +191,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        
+
         <ListBox x:Name="NamesBox" Visibility="Hidden" ItemsSource="{Binding TxtFileNames}" Margin="560,144,16,223" SelectionChanged="NamesBox_SelectionChanged"/>
         <Image x:Name="Circle2" Visibility="Visible" HorizontalAlignment="Left" Height="200" Margin="741,93,0,0" VerticalAlignment="Top" Width="242" Source="https://circle.so/wp-content/uploads/Ellipse-261.png" OpacityMask="Black"/>
         <Image x:Name="Circle1" HorizontalAlignment="Left" Height="280" Margin="-39,122,0,0" VerticalAlignment="Top" Width="326" Source="https://circle.so/wp-content/uploads/Ellipse-261.png" OpacityMask="#FFF9EDED" Opacity="0.4"/>
