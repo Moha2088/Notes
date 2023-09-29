@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using Notes.ViewModels;
@@ -29,8 +30,17 @@ namespace Notes.Views
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
-            FileCrud updateCrud = mvm.Update;
-            updateCrud(NamesBox.SelectedItem.ToString(), txtBox1.Text);
+            if (NamesBox.SelectedItem is not null)
+            {
+                FileCrud updateCrud = mvm.Update;
+                updateCrud(NamesBox.SelectedItem.ToString(), txtBox1.Text);
+            }
+
+            else
+            {
+                MessageBox.Show("You have to click on a file to update!", "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
 
         private void DeleteFileBtn_Click(object sender, RoutedEventArgs e)
@@ -52,8 +62,6 @@ namespace Notes.Views
         private void closeBtn_Click(object sender, RoutedEventArgs e) => Close();
 
 
-
-
         private void CreateNoteBtn_Click(object sender, RoutedEventArgs e)
         {
             FileNameLabel.Visibility = Visibility.Visible;
@@ -71,7 +79,6 @@ namespace Notes.Views
             Circle3.Visibility = Visibility.Hidden;
             NamesBoxLabel.Visibility = Visibility.Visible;
             NamesBoxCount.Visibility = Visibility.Visible;
-
         }
 
         private void WheatBtn_Click(object sender, RoutedEventArgs e)
@@ -93,7 +100,6 @@ namespace Notes.Views
             MainBackBtn.BorderBrush = Brushes.Black;
             NamesBoxLabel.Foreground = Brushes.Black;
             NamesBoxCount.Foreground = Brushes.Black;
-
         }
 
         private void WhiteBtn_Click(object sender, RoutedEventArgs e)

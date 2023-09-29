@@ -75,5 +75,7 @@ namespace Notes.Models
             File.Delete(file);
             MessageBox.Show($"File deleted: {file}");
         }
+        
+        
     }
 }
